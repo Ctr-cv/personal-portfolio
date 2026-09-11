@@ -90,16 +90,23 @@ export default function AboutPage() {
                 </div>
 
                 <ul className="grid gap-px bg-carbon-700 sm:grid-cols-2">
-                  {group.items.map((item) => (
+                  {group.items.map((item, itemIndex) => (
                     <li
                       key={item.name}
                       className="group relative min-h-[4.5rem] bg-carbon-900 px-4 py-3.5 transition-[background-color,transform] duration-200 ease-out hover:z-10 hover:-translate-y-px hover:bg-carbon-800"
                     >
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="type-meta text-bone-100 transition-colors duration-200 group-hover:text-bone-50">{item.name}</span>
-                        <span aria-hidden="true" className="h-px w-4 shrink-0 bg-carbon-600 transition-[width,background-color] duration-200 group-hover:w-6 group-hover:bg-bone-400" />
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex min-w-0 items-baseline gap-2.5">
+                          <span aria-hidden="true" className="type-meta numeric shrink-0 text-[0.625rem] text-bone-600 transition-colors duration-200 group-hover:text-bone-400">
+                            {String(itemIndex + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[0.95rem] font-semibold leading-snug tracking-[-0.01em] text-bone-50 transition-colors duration-200 group-hover:text-bone-100">
+                            {item.name}
+                          </span>
+                        </div>
+                        <span aria-hidden="true" className="mt-2 h-px w-4 shrink-0 bg-carbon-600 transition-[width,background-color] duration-200 group-hover:w-6 group-hover:bg-bone-400" />
                       </div>
-                      {item.note && <span className="type-meta mt-1.5 block leading-snug text-bone-500 transition-colors duration-200 group-hover:text-bone-400">{item.note}</span>}
+                      {item.note && <span className="type-meta mt-1.5 block pl-[2.1rem] leading-snug text-bone-500 transition-colors duration-200 group-hover:text-bone-400">{item.note}</span>}
                     </li>
                   ))}
                 </ul>
