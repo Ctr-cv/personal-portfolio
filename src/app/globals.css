@@ -1,69 +1,58 @@
 @import "tailwindcss";
 
-/* ==========================================================================
-   DESIGN SYSTEM — "Instrumentation"
-   Aesthetic direction: industrial / utilitarian, borrowed from the tools of
-   digital design — EDA canvases, timing diagrams, oscilloscope phosphor,
-   PCB copper and its oxide. Carbon substrate, bone type, amber signal.
-   Two accents carry meaning, not decoration:
-     signal (amber)  -> hardware / silicon
-     oxide  (teal)   -> software / AI
-   ========================================================================== */
-
+/*
+ * Minimal visual system
+ * ---------------------
+ * A light, near-monochrome foundation shaped by Swiss editorial layouts:
+ * one type family, firm rules, generous spacing, and no decorative texture.
+ * Existing token names are retained so page markup stays stable while their
+ * meaning moves from the previous dark instrumentation theme to this system.
+ */
 @theme {
-  /* --- Substrate ------------------------------------------------------- */
-  --color-carbon-950: #060708;
-  --color-carbon-900: #08090b;
-  --color-carbon-850: #0c0e11;
-  --color-carbon-800: #12151a;
-  --color-carbon-750: #171b21;
-  --color-carbon-700: #1e232b;
-  --color-carbon-600: #2b323c;
-  --color-carbon-500: #3d4652;
+  /* Surfaces: off-white page through quiet gray borders. */
+  --color-carbon-950: #deddd8;
+  --color-carbon-900: #f5f4f0;
+  --color-carbon-850: #ffffff;
+  --color-carbon-800: #ecebe6;
+  --color-carbon-750: #e3e2dd;
+  --color-carbon-700: #d5d4cf;
+  --color-carbon-600: #c1c0ba;
+  --color-carbon-500: #a7a69f;
 
-  /* --- Type ------------------------------------------------------------ */
-  --color-bone-50: #fbf9f5;
-  --color-bone-100: #f1ede5;
-  --color-bone-200: #ded8cd;
-  --color-bone-300: #bdb6aa;
-  --color-bone-400: #9a948b;
-  /* Lightened from #7c766e so label/meta text clears WCAG AA (4.5:1) on every
-     surface used, including carbon-750. It was 4.07:1 on carbon-800 before. */
-  --color-bone-500: #8e8880;
+  /* Type: rich black through accessible secondary gray. */
+  --color-bone-50: #181818;
+  --color-bone-100: #222222;
+  --color-bone-200: #333333;
+  --color-bone-300: #4d4d4d;
+  --color-bone-400: #5d5d5d;
+  --color-bone-500: #666666;
 
-  /* --- Signal: hardware ------------------------------------------------ */
-  --color-signal-300: #ffcd82;
-  --color-signal-400: #ffb347;
-  --color-signal-500: #f59e0b;
-  --color-signal-700: #8a5a12;
-  --color-signal-900: #2a1d08;
+  /* Legacy semantic accents collapse into monochrome. Discipline remains
+     visible through labels and layout rather than bright color coding. */
+  --color-signal-300: #222222;
+  --color-signal-400: #181818;
+  --color-signal-500: #303030;
+  --color-signal-700: #5d5d5d;
+  --color-signal-900: #ededed;
+  --color-oxide-300: #3f3f3f;
+  --color-oxide-400: #555555;
+  --color-oxide-500: #666666;
+  --color-oxide-700: #858585;
+  --color-oxide-900: #eeeeee;
 
-  /* --- Oxide: software ------------------------------------------------- */
-  --color-oxide-300: #8fded0;
-  --color-oxide-400: #5cc9b0;
-  --color-oxide-500: #2ba98d;
-  --color-oxide-700: #175d4e;
-  --color-oxide-900: #08221d;
-
-  /* --- Type stacks ----------------------------------------------------- */
+  /* One family throughout, as required by the minimalist system. */
   --font-display: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
-  --font-body: var(--font-newsreader), "Newsreader", Georgia, serif;
-  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+  --font-body: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --font-mono: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
 
-  /* --- Motion ---------------------------------------------------------- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
 }
-
-/* ==========================================================================
-   BASE
-   ========================================================================== */
 
 :root {
   --page: var(--color-carbon-900);
-  --rule: color-mix(in oklab, var(--color-bone-400) 16%, transparent);
-  --rule-strong: color-mix(in oklab, var(--color-bone-400) 30%, transparent);
-  color-scheme: dark;
+  --rule: #d5d4cf;
+  --rule-strong: #181818;
+  color-scheme: light;
 }
 
 * {
@@ -76,169 +65,121 @@ html {
 }
 
 body {
-  background-color: var(--page);
+  overflow-x: hidden;
+  background: var(--page);
   color: var(--color-bone-100);
   font-family: var(--font-body);
   font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
 
 ::selection {
-  background-color: var(--color-signal-400);
-  color: var(--color-carbon-900);
+  background: var(--color-bone-100);
+  color: var(--color-carbon-850);
 }
 
-/* Visible, on-brand focus ring for keyboard users. */
 :focus-visible {
-  outline: 2px solid var(--color-signal-400);
-  outline-offset: 3px;
+  outline: 2px solid var(--color-bone-50);
+  outline-offset: 4px;
   border-radius: 2px;
 }
 
-/* ==========================================================================
-   TYPOGRAPHY PRIMITIVES
-   ========================================================================== */
-
+/* Typography: size and weight create hierarchy; family changes do not. */
 .font-display {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
 }
 
-/* Oversized editorial headline, fluid across the whole viewport range. */
 .type-hero {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.75rem, 9vw, 8.5rem);
-  line-height: 0.86;
-  letter-spacing: -0.045em;
+  font-weight: 500;
+  font-size: clamp(4rem, 10vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
 }
 
 .type-h1 {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.25rem, 6vw, 4.5rem);
-  line-height: 0.94;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  font-size: clamp(2.75rem, 6vw, 5.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
 }
 
 .type-h2 {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
 }
 
 .type-h3 {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
-  line-height: 1.2;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.25;
   letter-spacing: -0.015em;
 }
 
-/* Machine label: the connective tissue of the whole site. */
 .type-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  line-height: 1;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
 }
 
 .type-meta {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.55;
 }
 
-/* Long-form reading measure for case-study prose. */
 .type-prose {
   font-family: var(--font-body);
-  font-size: clamp(1.0625rem, 1.15vw, 1.1875rem);
-  line-height: 1.72;
-  letter-spacing: 0.004em;
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
 }
 
 .type-lead {
   font-family: var(--font-body);
-  font-size: clamp(1.125rem, 1.7vw, 1.5rem);
-  line-height: 1.5;
-  letter-spacing: -0.008em;
+  font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
 }
 
-/* Tabular figures wherever numbers are compared vertically. */
 .numeric {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-variant-numeric: tabular-nums;
-  font-feature-settings: "zero" 1;
 }
 
-/* ==========================================================================
-   ATMOSPHERE — grid, noise, glow
-   Layered so no page is ever a flat rectangle of colour.
-   ========================================================================== */
-
-/* Fine EDA-style measurement grid. */
-.texture-grid {
-  background-image:
-    linear-gradient(to right, var(--rule) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
-  background-size: 64px 64px;
-  background-position: center center;
-}
-
-/* Film grain. Kept as an inline SVG so there is no extra network request. */
+/* Legacy atmosphere hooks intentionally render nothing. Keeping the hooks
+   avoids brittle page rewrites while honoring the no-gradients/no-noise rule. */
+.texture-grid,
+.texture-bloom,
+.texture-bloom-oxide,
 .texture-noise::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.032;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  background: none;
 }
 
-/* Off-centre phosphor bloom. Asymmetric on purpose. */
-.texture-bloom {
-  background-image: radial-gradient(
-    ellipse 70% 55% at 18% 0%,
-    color-mix(in oklab, var(--color-signal-500) 13%, transparent),
-    transparent 68%
-  );
-}
-
-.texture-bloom-oxide {
-  background-image: radial-gradient(
-    ellipse 60% 50% at 88% 8%,
-    color-mix(in oklab, var(--color-oxide-500) 12%, transparent),
-    transparent 70%
-  );
-}
-
-/* Fades the grid out toward the bottom so it reads as atmosphere, not a table. */
-.mask-fade-b {
-  mask-image: linear-gradient(to bottom, black 0%, black 45%, transparent 100%);
-}
-
+.mask-fade-b,
 .mask-fade-edges {
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 35%, transparent 100%);
+  mask-image: none;
 }
 
-/* ==========================================================================
-   MOTION — one orchestrated load, then restraint
-   ========================================================================== */
-
+/* Short, restrained entrance motion. */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translate3d(0, 1.75rem, 0);
+    transform: translate3d(0, 0.75rem, 0);
   }
   to {
     opacity: 1;
@@ -247,89 +188,44 @@ body {
 }
 
 @keyframes wipe-in {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes trace-draw {
-  from {
-    stroke-dashoffset: var(--trace-length, 1200);
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.35;
-    transform: scale(0.82);
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
 }
 
-@keyframes scan {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(900%);
-  }
-}
-
-/* Staggered entrance. `--i` sets the position in the sequence. */
-.anim-rise {
-  animation: rise 0.85s var(--ease-out-expo) both;
-  animation-delay: calc(var(--i, 0) * 90ms);
-}
-
+.anim-rise,
 .anim-wipe {
-  animation: wipe-in 1.1s var(--ease-in-out-quint) both;
-  animation-delay: calc(var(--i, 0) * 90ms);
-}
-
-.anim-trace {
-  stroke-dasharray: var(--trace-length, 1200);
-  animation: trace-draw 2.6s var(--ease-out-expo) both;
-  animation-delay: 300ms;
+  animation: rise 0.45s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 55ms);
 }
 
 .anim-pulse {
   animation: pulse-dot 2.4s ease-in-out infinite;
 }
 
+.anim-trace,
 .anim-scan {
-  animation: scan 7s linear infinite;
+  animation: none;
 }
 
-/* Scroll-triggered reveal, toggled by the Reveal component. */
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 1.5rem, 0);
+  transform: translate3d(0, 0.75rem, 0);
   transition:
-    opacity 0.8s var(--ease-out-expo),
-    transform 0.8s var(--ease-out-expo);
-  transition-delay: calc(var(--i, 0) * 70ms);
+    opacity 0.4s ease,
+    transform 0.4s var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 40ms);
 }
 
 .reveal[data-shown="true"] {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  transform: none;
 }
 
-/* ==========================================================================
-   COMPONENT PRIMITIVES
-   ========================================================================== */
-
-/* Underline that draws in from the left on hover. */
 .link-underline {
   position: relative;
   display: inline-block;
@@ -339,13 +235,13 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;
-  height: 1px;
+  bottom: -3px;
   width: 100%;
-  background-color: currentColor;
+  height: 1px;
+  background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.4s var(--ease-out-expo);
+  transition: transform 0.22s ease;
 }
 
 .link-underline:hover::after,
@@ -353,48 +249,14 @@ body {
   transform: scaleX(1);
 }
 
-/* Corner ticks — registration marks, like a die photo or a datasheet figure. */
-.corner-ticks {
-  position: relative;
-}
-
+/* Registration marks belonged to the previous visual language. */
 .corner-ticks::before,
 .corner-ticks::after {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  pointer-events: none;
-  transition: border-color 0.4s var(--ease-out-expo);
+  content: none;
 }
-
-.corner-ticks::before {
-  top: -1px;
-  left: -1px;
-  border-top: 1px solid var(--rule-strong);
-  border-left: 1px solid var(--rule-strong);
-}
-
-.corner-ticks::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 1px solid var(--rule-strong);
-  border-right: 1px solid var(--rule-strong);
-}
-
-.corner-ticks:hover::before,
-.corner-ticks:hover::after {
-  border-color: var(--color-signal-400);
-}
-
-/* ==========================================================================
-   ACCESSIBILITY
-   ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
   *,
   *::before,
@@ -409,21 +271,12 @@ body {
     opacity: 1;
     transform: none;
   }
-
-  .anim-trace {
-    stroke-dasharray: none;
-  }
 }
 
-/* Honour high-contrast preferences by strengthening the hairlines. */
 @media (prefers-contrast: more) {
   :root {
-    --rule: color-mix(in oklab, var(--color-bone-200) 45%, transparent);
-    --rule-strong: var(--color-bone-200);
-  }
-
-  body {
-    color: var(--color-bone-50);
+    --rule: #888888;
+    --rule-strong: #000000;
   }
 }
 

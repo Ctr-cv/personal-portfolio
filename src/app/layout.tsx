@@ -1,36 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Mono, Newsreader } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import "./globals.css";
 
-/**
- * Type stack. Three faces, each with a job:
- *   Bricolage Grotesque — display. Slightly irregular, so headlines have a voice.
- *   Newsreader          — long-form prose. Case studies are meant to be read.
- *   IBM Plex Mono       — labels and figures. Engineering-adjacent by heritage.
- */
+/** One family across display, body, labels and figures. */
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-bricolage",
   display: "swap",
   weight: ["400", "500", "600", "700"],
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
-  display: "swap",
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-plex-mono",
-  display: "swap",
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -75,8 +55,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08090b",
-  colorScheme: "dark",
+  themeColor: "#f5f4f0",
+  colorScheme: "light",
 };
 
 /** Structured data so search results describe her accurately. */
@@ -98,7 +78,7 @@ const personSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${newsreader.variable} ${plexMono.variable}`}>
+    <html lang="en" className={bricolage.variable}>
       <body className="min-h-screen antialiased">
         <a
           href="#main"

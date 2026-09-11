@@ -1,65 +1,44 @@
 import Link from "next/link";
 import { MetricChip } from "@/components/metric";
-import { ProjectGlyph } from "@/components/project-glyph";
 import { DisciplineMark, StatusPill, TagList } from "@/components/tags";
 import type { Project } from "@/content/types";
 
-/**
- * Featured card. Asymmetric on purpose: the glyph column is narrower than the
- * text column and the metrics hang off the bottom edge, so a grid of these does
- * not read as a row of identical boxes.
- */
+/** Large, editorial row used for the three selected home-page projects. */
 export function FeaturedProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="group relative">
-      <Link
-        href={`/work/${project.slug}`}
-        className="corner-ticks block border border-bone-400/12 bg-carbon-850/40 p-6 transition-colors duration-500 hover:border-bone-400/25 hover:bg-carbon-800/60 sm:p-8"
-      >
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <span aria-hidden="true" className="type-label numeric text-bone-500">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <DisciplineMark discipline={project.discipline} />
-          </div>
-          {project.status && <StatusPill status={project.status} />}
-        </div>
+    <article className="group border-t border-bone-50">
+      <Link href={`/work/${project.slug}`} className="block py-8 sm:py-10">
+        <div className="grid gap-8 lg:grid-cols-[5rem_minmax(0,1fr)_minmax(15rem,0.65fr)] lg:gap-10">
+          <span aria-hidden="true" className="numeric text-sm text-bone-500">
+            {String(index + 1).padStart(2, "0")}
+          </span>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_11rem] lg:items-start">
-          <div className="flex flex-col gap-4">
-            <h3 className="type-h2 text-balance text-bone-50 transition-colors duration-300 group-hover:text-signal-300">
+          <div>
+            <div className="flex flex-wrap items-center gap-3">
+              <DisciplineMark discipline={project.discipline} />
+              {project.status && <StatusPill status={project.status} />}
+            </div>
+            <h3 className="type-h2 mt-5 max-w-3xl text-bone-50 transition-opacity duration-200 group-hover:opacity-65">
               {project.title}
             </h3>
-            <p className="type-prose max-w-2xl text-pretty text-bone-300">{project.tagline}</p>
-            <p className="type-meta text-bone-500">
-              {project.kind} · {project.context} · {project.timeframe}
-            </p>
+            <p className="type-lead mt-5 max-w-2xl text-bone-400">{project.tagline}</p>
           </div>
 
-          <ProjectGlyph
-            slug={project.slug}
-            discipline={project.discipline}
-            className="hidden h-28 opacity-45 lg:block"
-          />
+          <div className="flex flex-col justify-between gap-8 lg:border-l lg:border-carbon-700 lg:pl-8">
+            {project.metrics[0] && <MetricChip metric={project.metrics[0]} />}
+            <div>
+              <p className="type-meta mb-4 text-bone-500">
+                {project.kind} · {project.timeframe}
+              </p>
+              <TagList items={project.stack} max={4} />
+            </div>
+          </div>
         </div>
 
-        {project.metrics.length > 0 && (
-          <div className="mt-8 grid gap-6 border-t border-bone-400/12 pt-6 sm:grid-cols-2 lg:grid-cols-3">
-            {project.metrics.slice(0, 3).map((metric) => (
-              <MetricChip key={metric.label} metric={metric} />
-            ))}
-          </div>
-        )}
-
-        <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
-          <TagList items={project.stack} max={5} />
-          <span className="type-label flex items-center gap-2 text-bone-400 transition-colors duration-300 group-hover:text-signal-400">
-            Read case study
-            <span
-              aria-hidden="true"
-              className="transition-transform duration-500 group-hover:translate-x-1"
-            >
+        <div className="mt-8 flex justify-end">
+          <span className="type-label inline-flex items-center gap-2 text-bone-100">
+            View project
+            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
               →
             </span>
           </span>
@@ -69,42 +48,31 @@ export function FeaturedProjectCard({ project, index }: { project: Project; inde
   );
 }
 
-/** Compact card for the /work index. */
+/** Compact project index card; typography carries the visual hierarchy. */
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group h-full">
-      <Link
-        href={`/work/${project.slug}`}
-        className="corner-ticks flex h-full flex-col gap-5 border border-bone-400/12 bg-carbon-850/30 p-6 transition-colors duration-500 hover:border-bone-400/25 hover:bg-carbon-800/50"
-      >
-        <div className="flex items-start justify-between gap-3">
+    <article className="group h-full border-t border-bone-50">
+      <Link href={`/work/${project.slug}`} className="flex h-full flex-col py-6 sm:py-8">
+        <div className="flex items-start justify-between gap-4">
           <DisciplineMark discipline={project.discipline} />
           {project.status && <StatusPill status={project.status} />}
         </div>
 
-        <ProjectGlyph
-          slug={project.slug}
-          discipline={project.discipline}
-          className="h-20 opacity-35"
-        />
+        <h3 className="type-h3 mt-8 text-bone-50 transition-opacity duration-200 group-hover:opacity-60">
+          {project.title}
+        </h3>
+        <p className="mt-4 line-clamp-3 text-base leading-relaxed text-bone-400">
+          {project.tagline}
+        </p>
 
-        <div className="flex flex-col gap-3">
-          <h3 className="type-h3 text-balance text-bone-50 transition-colors duration-300 group-hover:text-signal-300">
-            {project.title}
-          </h3>
-          <p className="text-[0.9375rem] leading-relaxed text-pretty text-bone-400">
-            {project.tagline}
-          </p>
-        </div>
-
-        {project.metrics.length > 0 && (
-          <div className="mt-auto border-t border-bone-400/12 pt-5">
+        {project.metrics[0] && (
+          <div className="mt-8 border-t border-carbon-700 pt-5">
             <MetricChip metric={project.metrics[0]} />
           </div>
         )}
 
-        <div className={project.metrics.length > 0 ? "" : "mt-auto"}>
-          <p className="type-meta mb-3 text-bone-500">{project.timeframe}</p>
+        <div className="mt-auto pt-8">
+          <p className="type-meta mb-4 text-bone-500">{project.timeframe}</p>
           <TagList items={project.stack} max={3} />
         </div>
       </Link>
