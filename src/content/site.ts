@@ -46,12 +46,3 @@ export const disciplines = [
     keywords: ["Python", "PyTorch", "Computer vision", "FastAPI", "React"],
   },
 ];
-
-/**
- * Shown on the home page and About. The point is not modesty for its own sake:
- * it is that the visitor can trust every other number on the site.
- */
-export const methodNote = {
-  heading: "On the numbers",
-  body: "Every figure on this site is labelled with how it was obtained — instrumented measurement, tool-reported result, rough measurement, or personal estimate. Where a system's scale was inherited rather than built, it says so. The labels are there because I would rather you trust the numbers I can defend than be impressed by ones I cannot.",
-};

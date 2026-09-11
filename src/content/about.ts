@@ -1,49 +1,41 @@
 import type { SkillGroup } from "./types";
 
-/**
- * Depth is self-assessed and shown to the visitor:
- *   core     — I can be interviewed on this and defend the details.
- *   working  — I have shipped with it; I would not claim depth.
- *   exposure — I have used it. That is the whole claim.
- *
- * Nothing appears here that is not backed by something on this site.
- */
 export const skillGroups: SkillGroup[] = [
   {
     title: "Hardware & HDL",
     discipline: "hardware",
     items: [
-      { name: "SystemVerilog", depth: "core", note: "Full accelerator design: datapath, control, integration" },
+      { name: "SystemVerilog", depth: "core", note: "Accelerator datapath, control, and integration" },
       { name: "RTL & FSM design", depth: "core" },
       { name: "Pipelining", depth: "core", note: "Register balancing for timing closure" },
       { name: "Timing closure", depth: "core", note: "650 MHz on an AMD Kria device" },
-      { name: "Verilog", depth: "working", note: "Developing through my current architecture course" },
-      { name: "Binarized network hardware", depth: "working", note: "XNOR/popcount datapath, taped out" },
+      { name: "Verilog", depth: "working", note: "Computer Architecture coursework" },
+      { name: "Binarized network hardware", depth: "working", note: "XNOR/popcount datapath and tapeout" },
     ],
   },
   {
     title: "EDA, Verification & Embedded",
     discipline: "hardware",
     items: [
-      { name: "Vivado", depth: "core", note: "Out-of-context synthesis, post-implementation simulation" },
-      { name: "cocotb", depth: "working", note: "Python-driven RTL verification against a reference model" },
-      { name: "SystemVerilog testbenches", depth: "core", note: "Unit level and integration level" },
+      { name: "Vivado", depth: "core", note: "Synthesis, implementation, and post-implementation simulation" },
+      { name: "cocotb", depth: "working", note: "RTL verification against Python reference models" },
+      { name: "SystemVerilog testbenches", depth: "core", note: "Unit and integration testing" },
       { name: "Waveform debugging", depth: "core" },
       { name: "Netlist-level simulation", depth: "working" },
       { name: "STM32CubeIDE", depth: "working" },
       { name: "Embedded C", depth: "working" },
-      { name: "Quartus", depth: "exposure", note: "Earlier coursework only" },
+      { name: "Quartus", depth: "exposure", note: "Coursework" },
     ],
   },
   {
     title: "Languages",
     discipline: "software",
     items: [
-      { name: "Python", depth: "core", note: "Strongest language: data pipelines, PyTorch, NumPy, cocotb" },
+      { name: "Python", depth: "core", note: "Data pipelines, PyTorch, NumPy, and cocotb" },
       { name: "TypeScript / JavaScript", depth: "working" },
-      { name: "Java", depth: "working", note: "Spring Boot backend work" },
+      { name: "Java", depth: "working", note: "Spring Boot backend development" },
       { name: "SQL", depth: "working" },
-      { name: "C / C++", depth: "working", note: "Embedded C, plus <100 lines of pthreads C++ professionally" },
+      { name: "C / C++", depth: "working", note: "Embedded C and pthreads" },
       { name: "ArkTS", depth: "working", note: "HarmonyOS application development" },
     ],
   },
@@ -73,7 +65,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Supabase / Postgres", depth: "working" },
       { name: "WebSockets", depth: "working" },
       { name: "OAuth2", depth: "working" },
-      { name: "Airbyte", depth: "exposure", note: "Used it; hit errors I could not resolve" },
+      { name: "Airbyte", depth: "exposure" },
     ],
   },
   {
@@ -83,39 +75,9 @@ export const skillGroups: SkillGroup[] = [
       { name: "Git", depth: "core" },
       { name: "Linux / Unix", depth: "working" },
       { name: "Docker", depth: "working" },
-      { name: "CI/CD", depth: "working", note: "GitHub Actions, including a GDS hardening flow" },
+      { name: "CI/CD", depth: "working", note: "GitHub Actions and a GDS hardening flow" },
       { name: "Pytest", depth: "working" },
     ],
-  },
-];
-
-/**
- * Stated as a boundary rather than buried. A hiring manager will find these out
- * in an interview anyway; saying them first is worth more than hiding them.
- */
-export const boundaries = [
-  {
-    claim: "PCB design",
-    reality:
-      "None. My embedded work was hand-wired on a breadboard, and I have not used Altium, KiCad or any other PCB tooling.",
-  },
-  {
-    claim: "VHDL",
-    reality: "Not something I claim. My HDL work is SystemVerilog and Verilog.",
-  },
-  {
-    claim: "Cloud platforms",
-    reality:
-      "Thin. A previous personal site on AWS S3, and Huawei Cloud used for team documentation rather than engineering work.",
-  },
-  {
-    claim: "Device-level programming",
-    reality:
-      "My HarmonyOS work was app-layer. I wrote no drivers. Android sensor APIs are app-layer too, and I would not present either as firmware experience.",
-  },
-  {
-    claim: "JUnit",
-    reality: "Never used it. My testing experience is Pytest and HDL testbenches.",
   },
 ];
 
@@ -129,7 +91,7 @@ export const education = {
     "Term Distinction in every semester since",
   ],
   coursework: [
-    { name: "Digital Hardware Systems", note: "Lab-based; the MVM accelerator came out of this course" },
+    { name: "Digital Hardware Systems", note: "Lab-based; MVM accelerator course project" },
     { name: "Computer Architecture", note: "In progress, Fall 2026" },
     { name: "Digital Circuits and Systems", note: "Lab-based" },
     { name: "Digital Computers", note: "Lab-based" },
@@ -138,21 +100,20 @@ export const education = {
     { name: "Computer Networks" },
     { name: "Digital Signal Processing" },
   ],
-  note: "Four completed co-op work terms, preparing for the fifth. Waterloo's program alternates study and full-time work terms, which is why there is more industry experience here than a third year usually implies.",
+  note: "Four completed co-op work terms alongside the Computer Engineering program.",
 };
 
-/** What I want to build next. Stated as intent, not as work. */
 export const directions = [
   {
-    title: "Self-directed HDL",
-    body: "All of my HDL so far has been written for coursework. The next thing I want on this site is a hardware project I started myself — a small design on a real development board, with a testbench and a README, because nobody assigned it.",
+    title: "Independent RTL design",
+    body: "Develop a self-directed design on an FPGA board with a complete verification setup and implementation results.",
   },
   {
-    title: "AI at the edge",
-    body: "My machine learning work and my hardware work have not met yet. Deploying a model onto constrained hardware is the project that would connect them, and it is the direction I find most interesting.",
+    title: "Machine learning at the edge",
+    body: "Deploy a model on constrained hardware and explore the tradeoffs between model structure, memory, and throughput.",
   },
   {
-    title: "Finishing the audio pipeline",
-    body: "Gestalt Engine recognizes gestures but does not yet synthesize spatial audio from them. Finishing it would make it an interface rather than a classifier.",
+    title: "Gesture-driven audio",
+    body: "Extend Gestalt Engine from gesture recognition into a complete spatial-audio interface.",
   },
 ];
