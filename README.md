@@ -187,5 +187,5 @@ fixed in `src/app/page.tsx` as Gestalt Engine, MVM Engine, and Route Extraction.
 `vivi.txt` and `Software_Resume.pdf` at the repository root are source material;
 they are not served by the site. `public/vivi-huang-resume.pdf` is the only
 publicly reachable résumé copy. Where source documents disagreed, the résumé was
-treated as authoritative for the 650 MHz timing result, 128-lane count, and
+treated as authoritative for the 550 MHz timing result, 128-lane count, and
 TinyTapeout dates.

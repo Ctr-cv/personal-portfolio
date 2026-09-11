@@ -11,7 +11,7 @@ export const roles: Role[] = [
     start: "2025-09",
     end: "2026-04",
     context:
-      "One continuous eight-month term on a team of roughly twelve, not two separate placements. Five distinct projects, spanning computer vision, machine learning, OS-level agent architecture, mobile development and latency optimization.",
+      "Eight-months co-op term @ Huawei Human-Machine Interaction Lab. My work spans computer vision, machine learning, OS-level agent architecture, mobile development and latency optimization.",
     contributions: [
       "Owned a cycling-route extraction pipeline end to end: recovering ordered geographic landmarks from unconstrained screenshots via morphological image processing, then snapping them to real routes through a maps routing service. Cut per-image runtime from roughly 30s to 12–15s.",
       "Fine-tuned a YOLO26 detector for in-pipeline map icon detection on a self-curated 2,300-image dataset — a class absent from pretraining — reaching 98% mAP@50 with mosaic and flip augmentation.",
@@ -33,12 +33,6 @@ export const roles: Role[] = [
         label: "In one eight-month term",
         basis: "measured",
         note: "Five distinct projects across computer vision, ML, agent architecture, mobile development and latency optimization. The breadth is the notable part — most of these are normally separate specialties.",
-      },
-      {
-        value: "7–8s → <3s",
-        label: "Median voice agent response latency",
-        basis: "approximate",
-        note: "From the user finishing speaking to the assistant's first word, at the median. A rough development measurement rather than rigorous benchmarking.",
       },
     ],
     stack: [
@@ -72,7 +66,7 @@ export const roles: Role[] = [
     start: "2025-01",
     end: "2025-04",
     context:
-      "One of JD.com's largest internal platforms — coupon issuance and promotion eligibility, used by hundreds of marketing employees. Spring Boot, with Redis and Kafka in the stack.",
+      "Worked on one of JD.com's largest internal platforms — coupon issuance and promotion eligibility, used by hundreds of marketing employees. Spring Boot, with Redis and Kafka in the stack.",
     contributions: [
       "Implemented a new form allowing employees to submit coupons and promotions for supervisor review.",
       "Debugged an edge case causing that form to fail to submit, and added alert notifications for it by reusing an alert object class already used elsewhere in the system — roughly thirty lines covering that case and other product-manager-reported issues.",
@@ -88,7 +82,7 @@ export const roles: Role[] = [
         note: "A property of the platform as I found it, along with its high availability. Context for the environment I was working in — code review standards and blast radius — and explicitly not a result I produced.",
       },
     ],
-    stack: ["Java", "Spring Boot", "SQL"],
+    stack: ["Java", "Spring Boot", "SQL", "Vue"],
     projects: ["promotions-platform"],
     scopeNote:
       "The platform's transaction volume and availability were inherited, not produced by me. I wrote no tests and did no CI/CD work this term, and I have no measured performance delta to report. What I gained was the ability to navigate and safely change a very large codebase somebody else wrote.",
@@ -103,7 +97,7 @@ export const roles: Role[] = [
     start: "2024-05",
     end: "2024-08",
     context:
-      "A small company selling a B2B SaaS product combining taxation services with AI features to 100+ client companies. Two co-op students, a couple of engineers, a PM, and the CEO and CTO.",
+      "A small company selling a B2B SaaS product combining taxation services with AI features to 100+ client companies. Small team of CEO, CTO, core engineers and co-ops.",
     contributions: [
       "Introduced authentication to a product that had none: an OAuth2 single-sign-on flow with connectors to Google Drive, Dropbox and GitHub, so client companies could bulk-import documents instead of uploading one file at a time.",
       "Built a continuous ETL synchronization from client sources into Supabase using Airbyte, landing over a million rows.",

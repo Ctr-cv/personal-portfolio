@@ -1,0 +1,12 @@
+Data Analyst Intern Dec 2024 - Mar 2025
+Shenzhen Lansi Institute of AI Remote
+– Analyzed clinical and expression data from cancer research, with 500k open-sourced samples world-wide
+– Used R and Python to perform exploratory data analysis and web scraping for data gathering
+– Studied neural network procedures and predictive algorithms to enhance LLM predictions. Some example methods include Lasso analytics and Cox regression
+- Used Zotero and wrote Python scripts to scrape effective information from recent medical papers
+Research Intern May - August 2023
+
+Chinese Academy of Sciences Beijing
+– Worked on 3D modelling & CAD with COMSOL, SolidWorks
+– Performed 100+ COMSOL simulations and proposed heat-sink design that improves heat-efficiency by 23%
+– Contributed to deep-sea chassis research with 5 other PhD students and doctoral advisor

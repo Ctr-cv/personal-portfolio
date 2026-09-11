@@ -16,9 +16,9 @@ const depthLabel = { core: "Primary", working: "Applied", exposure: "Familiar" }
 const depthStyle = { core: "text-bone-50", working: "text-bone-300", exposure: "text-bone-500" } as const;
 
 const bio = [
-  "I'm a third-year Computer Engineering student at the University of Waterloo. The co-op program has taken me through four full-time work terms in software engineering, backend development, and product development across Canada and China.",
-  "My recent projects span real-time machine learning, computer vision, FPGA acceleration, and embedded systems. I enjoy work where implementation details matter, whether that means reducing latency in a service pipeline or balancing registers in an RTL datapath.",
-  "I work professionally in English and Mandarin. During my terms at Huawei and JD.com, that included collaborating directly with engineering teams in Beijing and communicating technical work across offices.",
+  "Hello! My name is Vivi Huang, and I'm a third-year Computer Engineering student at the University of Waterloo. Through my personal time, courseworks and previous co-ops, I have gained extensive experience in full-stack and product development.",
+  "My recent projects span real-time machine learning, computer vision, FPGA acceleration, and embedded systems. I enjoy work where implementation details matter, from parallelizing a backend service to pipelining registers in an RTL datapath.",
+  "I'm constantly driven by curiosity and problem solving, and in hunt for ambitious and technical work. Feel free to contact me for any inquiries!",
 ];
 
 export default function AboutPage() {

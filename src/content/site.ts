@@ -21,7 +21,7 @@ export const site = {
   availability: {
     label: "Seeking Winter 2027 co-op",
     detail:
-      "Open to hardware design, verification, and AI/ML systems roles. Fifth work term.",
+      "Open to SWE, AI/ML systems, and hardware/FPGA design roles. Fifth work term.",
   },
 } as const;
 
@@ -35,14 +35,14 @@ export const disciplines = [
     id: "hardware" as const,
     label: "Digital hardware",
     heading: "RTL and embedded systems",
-    body: "Coursework and project experience in SystemVerilog, FPGA implementation, timing closure, cocotb verification, and embedded C on STM32.",
+    body: "Coursework and project experience in SystemVerilog, VHDL, FPGA implementation, timing closure, cocotb verification, and embedded C on STM32.",
     keywords: ["SystemVerilog", "Vivado", "cocotb", "FPGA / ASIC", "Embedded C"],
   },
   {
     id: "software" as const,
     label: "Software and ML",
-    heading: "Machine learning and product engineering",
-    body: "Co-op and personal work spanning computer vision, real-time inference, concurrent pipelines, backend services, and React applications.",
-    keywords: ["Python", "PyTorch", "Computer vision", "FastAPI", "React"],
+    heading: "SW product engineering and Machine Learning",
+    body: "Co-op and personal projects, spanning basic CV, real-time model inference, concurrent pipelines, frontend/backend services, and React applications.",
+    keywords: ["Python", "PyTorch", "Computer vision", "FastAPI", "React", "NodeJS"],
   },
 ];

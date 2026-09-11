@@ -47,10 +47,10 @@ export const hardwareProjects: Project[] = [
     ],
     metrics: [
       {
-        value: "650 MHz",
+        value: "550 MHz",
         label: "Timing met after implementation",
         basis: "tool-reported",
-        note: "Vivado's post-implementation timing report, against the lab's 650 MHz pass requirement. Achieved through register-balanced pipelining. The constraints file deliberately specifies an unattainable 1 ns period — not as a target, but to push the synthesis tool to optimise as aggressively as it can.",
+        note: "Vivado's post-implementation timing report, against the lab's 550 MHz pass requirement. Achieved through register-balanced pipelining. The constraints file deliberately specifies an unattainable 1 ns period — not as a target, but to push the synthesis tool to optimise as aggressively as it can.",
       },
       {
         value: "128 lanes",
@@ -77,7 +77,7 @@ export const hardwareProjects: Project[] = [
     decisions: [
       {
         title: "Fully pipeline the dot-product unit",
-        body: "The dot-product unit takes two 8-element signed vectors and produces a scalar. Eight parallel multipliers feed a binary adder reduction tree of log₂(N) levels, and the whole path is pipelined with registers between stages. This is what makes the clock target reachable: it breaks the long multiply-and-reduce path into short stages, each of which has to settle in one cycle rather than the whole chain having to settle in one cycle. Balancing where those registers sit is the difference between meeting 650 MHz and missing it.",
+        body: "The dot-product unit takes two 8-element signed vectors and produces a scalar. Eight parallel multipliers feed a binary adder reduction tree of log₂(N) levels, and the whole path is pipelined with registers between stages. This is what makes the clock target reachable: it breaks the long multiply-and-reduce path into short stages, each of which has to settle in one cycle rather than the whole chain having to settle in one cycle. Balancing where those registers sit is the difference between meeting 550 MHz and missing it.",
       },
       {
         title: "Give the accumulator first/last control instead of an external counter",
@@ -116,7 +116,7 @@ export const hardwareProjects: Project[] = [
       },
     ],
     outcome: [
-      "The design meets timing at the 650 MHz target with 128 compute lanes on the 512 × 512 benchmark, verified at both RTL and implemented-netlist level.",
+      "The design meets timing at the 550 MHz target with 128 compute lanes on the 512 × 512 benchmark, verified at both RTL and implemented-netlist level.",
       "More usefully, it is the project that taught me the difference between RTL that simulates and RTL that builds. Pipelining for timing, respecting memory latency in control, synthesizing out-of-context, and checking utilisation against expectation are all things you only learn by having the tools refuse to cooperate.",
     ],
     limitations: [

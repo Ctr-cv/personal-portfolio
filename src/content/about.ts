@@ -8,7 +8,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "SystemVerilog", depth: "core", note: "Accelerator datapath, control, and integration" },
       { name: "RTL & FSM design", depth: "core" },
       { name: "Pipelining", depth: "core", note: "Register balancing for timing closure" },
-      { name: "Timing closure", depth: "core", note: "650 MHz on an AMD Kria device" },
+      { name: "Timing closure", depth: "core", note: "550 MHz on an AMD Kria device" },
       { name: "Verilog", depth: "working", note: "Computer Architecture coursework" },
       { name: "Binarized network hardware", depth: "working", note: "XNOR/popcount datapath and tapeout" },
     ],

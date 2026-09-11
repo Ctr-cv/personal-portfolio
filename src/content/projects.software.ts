@@ -5,7 +5,7 @@ export const softwareProjects: Project[] = [
     slug: "gestalt-engine",
     title: "Gestalt Engine",
     tagline:
-      "A real-time gesture-to-audio interface. I implemented the same LSTM recognizer twice — once from scratch in NumPy, once in PyTorch.",
+      "A real-time gesture-to-audio interface. Implemented a layered LSTM recognizer from scratch using Numpy for temporal/spatial gesture detection.",
     discipline: "software",
     kind: "Real-time ML system",
     context: "Personal project, solo",
@@ -165,9 +165,9 @@ export const softwareProjects: Project[] = [
 
   {
     slug: "route-extraction",
-    title: "Cycling Route Extraction Pipeline",
+    title: "Route Extraction Pipeline",
     tagline:
-      "Recovering an ordered sequence of landmarks from an arbitrary screenshot, then snapping it to a real cycling route.",
+      "Recovering an ordered sequence of landmarks from an arbitrary screenshot, then snapping it to a real cycling route. Demo for Huawei Health team.",
     discipline: "software",
     kind: "Computer vision pipeline",
     context: "Huawei Technologies Canada",

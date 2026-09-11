@@ -33,7 +33,7 @@ export default function HomePage() {
                 Software, ML,<br />and digital hardware.
               </h1>
               <p className="anim-rise type-lead mt-10 max-w-2xl text-bone-400" style={{ ["--i" as string]: 2 }}>
-                {site.positioning} Four co-op terms across engineering teams in Canada and China.
+                {site.positioning}
               </p>
               <div className="anim-rise mt-10 flex flex-wrap gap-3" style={{ ["--i" as string]: 3 }}>
                 <Link href="/work" className="type-label bg-bone-100 px-6 py-4 text-carbon-850 transition-opacity hover:opacity-75">
@@ -97,7 +97,7 @@ export default function HomePage() {
       <section className="surface-panel py-24 sm:py-36">
         <Container wide>
           <Reveal>
-            <SectionHeader index="02" label="Selected projects" title="Three representative projects." intro="Machine learning, FPGA design, and computer vision work from personal and professional settings." />
+            <SectionHeader index="02" label="Selected projects" title="Three representative projects." intro="Machine learning, FPGA design, and CV work from personal and professional settings." />
           </Reveal>
           <div className="mt-16 border-b border-bone-50">
             {selectedProjects.map((project, i) => (

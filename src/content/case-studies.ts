@@ -46,7 +46,7 @@ const caseStudies: Record<string, CaseStudyCopy> = {
       "The project also exercised the implementation flow beyond functional RTL. The block was synthesized out of context because its wide interfaces could not map to physical board pins, then checked after implementation for timing, resource use, and netlist-level behavior on an AMD Kria target.",
     ],
     results: [
-      "Met the lab's 650 MHz post-implementation timing target with 128 compute lanes on the 512 × 512 configuration.",
+      "Met the lab's 550 MHz post-implementation timing target with 128 compute lanes on the 512 × 512 configuration.",
       "Verified individual modules, top-level behavior, and the implemented netlist through simulation and waveform debugging.",
     ],
     choices: [
