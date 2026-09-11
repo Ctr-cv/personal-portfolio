@@ -200,7 +200,7 @@ export const hardwareProjects: Project[] = [
     slug: "riscv-processor",
     title: "RISC-V Processor from Scratch",
     tagline:
-      "Datapath, control and processor subsystem in Verilog — currently in progress, including pipelining.",
+      "Developing a complete Datapath, control and processor RISC-V subsystem in Verilog with extensive pipelining.",
     discipline: "hardware",
     kind: "Processor design",
     context: "Computer Architecture, University of Waterloo",
@@ -236,7 +236,7 @@ export const hardwareProjects: Project[] = [
     discipline: "hardware",
     kind: "Embedded firmware",
     context: "Coursework",
-    timeframe: "Coursework project",
+    timeframe: "Fall 2023",
     weight: 30,
     featured: false,
     status: "shipped",

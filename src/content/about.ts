@@ -48,7 +48,7 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "PyTorch", depth: "core" },
       { name: "NumPy", depth: "core", note: "Hand-written LSTM cell and backpropagation" },
-      { name: "Lasso & Cox regression", depth: "exposure", note: "Methods studied for clinical prediction research" },
+      { name: "Lasso & Cox regression", depth: "exposure", note: "Clinical survival prediction & feature selection" },
       { name: "OpenCV", depth: "working" },
       { name: "MediaPipe", depth: "working" },
       { name: "YOLO fine-tuning", depth: "working", note: "98% mAP@50 on a custom class" },
@@ -110,7 +110,7 @@ export const education = {
 export const directions = [
   {
     title: "Independent RTL design",
-    body: "Develop a self-directed design on an FPGA board with a complete verification setup and implementation results.",
+    body: "Develop a RISC-V core design on an AMD FPGA board with a complete verification setup and test suite.",
   },
   {
     title: "Machine learning at the edge",

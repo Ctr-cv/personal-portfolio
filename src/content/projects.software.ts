@@ -385,7 +385,7 @@ export const softwareProjects: Project[] = [
   {
     slug: "onnx-export-parallelism",
     title: "ONNX Export Pipeline Parallelism",
-    tagline: "Under a hundred lines of C++ to restructure a slow model-export pipeline around pthreads.",
+    tagline: "100 + lines of C++ to restructure a slow model-export pipeline around pthreads.",
     discipline: "software",
     kind: "Systems / C++",
     context: "Huawei Technologies Canada",
@@ -414,7 +414,7 @@ export const softwareProjects: Project[] = [
       "Reduced export runtime and a file-generation path that worked reliably.",
     ],
     limitations: [
-      "Under a hundred lines of C++. My C and C++ are working-level, not expert, and this project is the evidence for that characterization rather than against it.",
+      "100+ lines of C++. My C and C++ are professional level, not expert, and this project is the evidence for that characterization rather than against it.",
       "No measured before-and-after runtime figure, so none is quoted.",
     ],
   },
@@ -423,7 +423,7 @@ export const softwareProjects: Project[] = [
     slug: "anchor",
     title: "Anchor",
     tagline:
-      "A focus tool that notices when you drift off-task and says something about it. 75% fewer tokens via perceptual hashing.",
+      "A focus tool that notices when you drift off-task and actively alerts you. 75% fewer tokens via perceptual hashing.",
     discipline: "software",
     kind: "Chrome extension / hackathon",
     context: "DeltaHacks 12",
@@ -556,7 +556,7 @@ export const softwareProjects: Project[] = [
     slug: "promotions-platform",
     title: "Coupon and Promotion Platform Maintenance",
     tagline:
-      "Four months inside one of JD.com's largest internal platforms: shipping small changes to a large codebase I did not write.",
+      "Four months inside one of JD.com's largest internal platforms: shipped several changes to the commercial promotion database.",
     discipline: "software",
     kind: "Backend maintenance",
     context: "JD.com, Beijing",
@@ -570,7 +570,7 @@ export const softwareProjects: Project[] = [
     metrics: [
       {
         value: "500k+ daily",
-        label: "Transactions on the platform I worked in",
+        label: "Transactions on the prize/promotion platform",
         basis: "inherited-scale",
         note: "This is a property of the platform as I found it, not a result I produced. The same goes for its availability. I am including it because it describes the environment I was operating in — code review standards, blast radius, caution — and for no other reason. It is not an achievement of mine and should never be read as one.",
       },

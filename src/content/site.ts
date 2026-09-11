@@ -17,7 +17,7 @@ export const site = {
   linkedinHandle: "vivi-huang-45254223b",
   resume: "/vivi-huang-resume.pdf",
   location: "Waterloo, Ontario, Canada",
-  languages: "English and Mandarin, both at professional working level",
+  languages: "English and Mandarin (professional), French (Limited)",
   availability: {
     label: "Seeking Winter 2027 co-op",
     detail:

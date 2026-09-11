@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const bio = [
-  "Hello! My name is Vivi Huang, and I'm a third-year Computer Engineering student at the University of Waterloo. Through my personal time, courseworks and previous co-ops, I have gained extensive experience in full-stack and product development.",
+  "Hello! My name is Vivi Huang, and I'm a third-year Computer Engineering student at the University of Waterloo. Through my personal time, school courses, and previous co-ops, I have gained extensive experience in full-stack and product development.",
   "My recent projects span real-time machine learning, computer vision, FPGA acceleration, and embedded systems. I enjoy work where implementation details matter, from parallelizing a backend service to pipelining registers in an RTL datapath.",
   "I'm constantly driven by curiosity and problem solving, and in hunt for ambitious and technical work. Feel free to contact me for any inquiries!",
 ];

@@ -18,14 +18,13 @@ export const roles: Role[] = [
       "Co-proposed and built a Windows desktop agent that learns repeated user workflows from OS-level event capture and replays them through computer-use tool calls, with fuzzy sliding-window matching over a prefix tree of skills in ChromaDB.",
       "Built the entire frontend for a multi-person voice assistant mode gating replies on voiceprint identity, and cut median response latency from 7–8s to under 3s by running streaming VAD, model inference and TTS concurrently.",
       "Co-built a multi-device live speech demo on HarmonyOS in ArkTS, running LiveKit's JavaScript API inside an ArkWeb web view because no native HarmonyOS SDK existed.",
-      "Restructured a teammate's ONNX model-export pipeline around pthreads in under 100 lines of C++ and debugged the file-generation path.",
+      "Parallelized team's ONNX model-export pipeline around pthreads to fix performance issues and debugged the file-generation path.",
     ],
     beyondCode: [
       "Pitched approaches to my supervisor and to the full twelve-person team in standups, including frontend design proposals and optimizations to existing projects.",
       "Ran design reviews and helped other team members with their own projects.",
       "Managed the team's local agent testing setup on a small 7B model and reported findings back to the team.",
-      "Became a main communicator in several headquarters group chats because I speak Mandarin, recorded demo videos and photography for headquarters leadership, and collected voice data on behalf of other teams. My supervisor remained the primary channel.",
-      "Spent roughly a week writing cloud documentation and repository READMEs so my work could be handed off cleanly.",
+      "Became a main communicator in several headquarters group chats because I speak Mandarin, recorded demo videos and photography for headquarters leadership, and collected voice data on behalf of other teams.",
     ],
     metrics: [
       {
@@ -70,7 +69,7 @@ export const roles: Role[] = [
     contributions: [
       "Used R and Python to explore clinical and gene-expression data drawn from a global collection of 500,000 open-source cancer-research samples.",
       "Gathered research inputs through web scraping and Python-assisted literature review, using Zotero to organize recent medical papers.",
-      "Studied neural-network and statistical prediction procedures, including Lasso and Cox regression, in support of research on model predictions.",
+      "Built automated scrapers to aggregate literature and applied neural-network and statistical prediction procedures, including Lasso and Cox regression, in support of research on model predictions.",
     ],
     metrics: [
       {
@@ -94,10 +93,10 @@ export const roles: Role[] = [
     context:
       "Worked on one of JD.com's largest internal platforms — coupon issuance and promotion eligibility, used by hundreds of marketing employees. Spring Boot, with Redis and Kafka in the stack.",
     contributions: [
-      "Implemented a new form allowing employees to submit coupons and promotions for supervisor review.",
-      "Debugged an edge case causing that form to fail to submit, and added alert notifications for it by reusing an alert object class already used elsewhere in the system — roughly thirty lines covering that case and other product-manager-reported issues.",
+      "Implemented a new coupon/promotion review submission workflow, allowing employees to submit coupons and promotions for supervisor review.",
+      "Debugged an edge case causing that form to fail to submit, and added alert notifications for it by reusing an alert object class already used elsewhere in the system to fix PM-reported issues.",
       "Fixed frontend rendering defects, which accounted for two of the three issues product managers had raised.",
-      "Added database indexes on the paths I was working in.",
+      "Added promotion query paths via target database indexing",
       "Wrote design documents, participated in code review, and worked directly with product managers to drive three platform issues to resolution over four months.",
     ],
     metrics: [
