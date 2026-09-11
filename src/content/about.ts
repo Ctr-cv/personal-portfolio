@@ -24,6 +24,8 @@ export const skillGroups: SkillGroup[] = [
       { name: "Netlist-level simulation", depth: "working" },
       { name: "STM32CubeIDE", depth: "working" },
       { name: "Embedded C", depth: "working" },
+      { name: "COMSOL", depth: "working", note: "100+ thermal simulations for deep-sea chassis research" },
+      { name: "SolidWorks", depth: "exposure", note: "3D modelling and CAD" },
       { name: "Quartus", depth: "exposure", note: "Coursework" },
     ],
   },
@@ -32,6 +34,7 @@ export const skillGroups: SkillGroup[] = [
     discipline: "software",
     items: [
       { name: "Python", depth: "core", note: "Data pipelines, PyTorch, NumPy, and cocotb" },
+      { name: "R", depth: "working", note: "Exploratory analysis of clinical and gene-expression data" },
       { name: "TypeScript / JavaScript", depth: "working" },
       { name: "Java", depth: "working", note: "Spring Boot backend development" },
       { name: "SQL", depth: "working" },
@@ -45,6 +48,7 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "PyTorch", depth: "core" },
       { name: "NumPy", depth: "core", note: "Hand-written LSTM cell and backpropagation" },
+      { name: "Lasso & Cox regression", depth: "exposure", note: "Methods studied for clinical prediction research" },
       { name: "OpenCV", depth: "working" },
       { name: "MediaPipe", depth: "working" },
       { name: "YOLO fine-tuning", depth: "working", note: "98% mAP@50 on a custom class" },

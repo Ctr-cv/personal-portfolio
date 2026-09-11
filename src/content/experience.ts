@@ -131,6 +131,65 @@ export const roles: Role[] = [
   },
 ];
 
+export const additionalRoles: Role[] = [
+  {
+    slug: "lansi-ai",
+    company: "Shenzhen Lansi Institute of AI",
+    title: "Data Analyst Intern",
+    location: "Remote",
+    timeframe: "Dec 2024 – Mar 2025",
+    start: "2024-12",
+    end: "2025-03",
+    context:
+      "Supported cancer-research data analysis and literature review using open-source clinical and gene-expression datasets.",
+    contributions: [
+      "Used R and Python to explore clinical and gene-expression data drawn from a global collection of 500,000 open-source cancer-research samples.",
+      "Gathered research inputs through web scraping and Python-assisted literature review, using Zotero to organize recent medical papers.",
+      "Studied neural-network and statistical prediction procedures, including Lasso and Cox regression, in support of research on model predictions.",
+    ],
+    metrics: [
+      {
+        value: "500k",
+        label: "Open-source samples analyzed",
+        basis: "inherited-scale",
+        note: "The size of the source dataset, not samples collected or generated during the internship.",
+      },
+    ],
+    stack: ["R", "Python", "Web scraping", "Lasso regression", "Cox regression", "Zotero"],
+  },
+  {
+    slug: "chinese-academy-sciences",
+    company: "Chinese Academy of Sciences",
+    title: "Research Intern",
+    location: "Beijing, China",
+    timeframe: "May – Aug 2023",
+    start: "2023-05",
+    end: "2023-08",
+    context:
+      "Contributed to deep-sea chassis research alongside five PhD students and a doctoral advisor, focusing on thermal simulation and mechanical design.",
+    contributions: [
+      "Worked on 3D modelling and CAD for the chassis using COMSOL and SolidWorks.",
+      "Ran more than 100 COMSOL simulations to evaluate thermal behavior and compare heat-sink configurations.",
+      "Proposed a heat-sink design whose simulated heat-efficiency result improved by 23% over the comparison design.",
+    ],
+    metrics: [
+      {
+        value: "100+",
+        label: "COMSOL simulations",
+        basis: "measured",
+        note: "Simulation-run count completed during the research internship.",
+      },
+      {
+        value: "23%",
+        label: "Simulated heat-efficiency improvement",
+        basis: "tool-reported",
+        note: "A COMSOL simulation result for the proposed heat-sink design, not a physical-hardware measurement.",
+      },
+    ],
+    stack: ["COMSOL", "SolidWorks", "3D modelling", "CAD", "Thermal simulation"],
+  },
+];
+
 export function getRole(slug: string): Role | undefined {
   return roles.find((r) => r.slug === slug);
 }
