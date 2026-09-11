@@ -12,9 +12,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-const depthLabel = { core: "Primary", working: "Applied", exposure: "Familiar" } as const;
-const depthStyle = { core: "text-bone-50", working: "text-bone-300", exposure: "text-bone-500" } as const;
-
 const bio = [
   "Hello! My name is Vivi Huang, and I'm a third-year Computer Engineering student at the University of Waterloo. Through my personal time, courseworks and previous co-ops, I have gained extensive experience in full-stack and product development.",
   "My recent projects span real-time machine learning, computer vision, FPGA acceleration, and embedded systems. I enjoy work where implementation details matter, from parallelizing a backend service to pipelining registers in an RTL datapath.",
@@ -78,27 +75,31 @@ export default function AboutPage() {
       <section className="py-20 sm:py-28">
         <Container wide>
           <Reveal>
-            <SectionHeader index="01" label="Technical range" title="Tools used across projects and co-op terms." intro="Grouped by where I have the most hands-on depth, where I have shipped or built with a tool, and where I have prior familiarity." />
+            <SectionHeader index="01" label="Technical range" title="Tools used across projects and co-op terms." intro="Grouped by engineering domain, with concise implementation context where it is useful." />
           </Reveal>
 
-          <Reveal className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
-            {(["core", "working", "exposure"] as const).map((depth) => (
-              <span key={depth} className={`type-label ${depthStyle[depth]}`}>{depthLabel[depth]}</span>
-            ))}
-          </Reveal>
-
-          <div className="mt-14 grid gap-x-14 gap-y-16 lg:grid-cols-2">
+          <div className="mt-14 grid gap-8 lg:grid-cols-2">
             {skillGroups.map((group, index) => (
-              <Reveal key={group.title} index={index % 2}>
-                <h2 className="type-h3 text-bone-50">{group.title}</h2>
-                <ul className="mt-6">
+              <Reveal key={group.title} index={index % 2} className="self-start border border-carbon-700 bg-carbon-900">
+                <div className="flex flex-col gap-3 border-b border-carbon-700 px-5 py-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
+                  <div className="flex items-baseline gap-4">
+                    <span aria-hidden="true" className="type-meta numeric text-bone-500">{String(index + 1).padStart(2, "0")}</span>
+                    <h2 className="type-h3 text-bone-50">{group.title}</h2>
+                  </div>
+                  <span className="type-meta numeric shrink-0 text-bone-500">{String(group.items.length).padStart(2, "0")} skills</span>
+                </div>
+
+                <ul className="grid gap-px bg-carbon-700 sm:grid-cols-2">
                   {group.items.map((item) => (
-                    <li key={item.name} className="grid gap-x-6 gap-y-1 border-t border-carbon-700 py-4 sm:grid-cols-[minmax(0,11rem)_minmax(0,1fr)]">
-                      <span className={`type-meta ${depthStyle[item.depth]}`}>{item.name}</span>
-                      <div>
-                        <span className="type-label text-bone-500">{depthLabel[item.depth]}</span>
-                        {item.note && <span className="type-meta mt-1 block text-bone-400">{item.note}</span>}
+                    <li
+                      key={item.name}
+                      className="group relative min-h-[4.5rem] bg-carbon-900 px-4 py-3.5 transition-[background-color,transform] duration-200 ease-out hover:z-10 hover:-translate-y-px hover:bg-carbon-800"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="type-meta text-bone-100 transition-colors duration-200 group-hover:text-bone-50">{item.name}</span>
+                        <span aria-hidden="true" className="h-px w-4 shrink-0 bg-carbon-600 transition-[width,background-color] duration-200 group-hover:w-6 group-hover:bg-bone-400" />
                       </div>
+                      {item.note && <span className="type-meta mt-1.5 block leading-snug text-bone-500 transition-colors duration-200 group-hover:text-bone-400">{item.note}</span>}
                     </li>
                   ))}
                 </ul>
