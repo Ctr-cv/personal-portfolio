@@ -1,0 +1,142 @@
+import type { Role } from "./types";
+
+/** Most recent first. */
+export const roles: Role[] = [
+  {
+    slug: "huawei",
+    company: "Huawei Technologies Canada",
+    title: "Software Engineer Intern",
+    location: "Markham, ON",
+    timeframe: "Sept 2025 – Apr 2026",
+    start: "2025-09",
+    end: "2026-04",
+    context:
+      "One continuous eight-month term on a team of roughly twelve, not two separate placements. Five distinct projects, spanning computer vision, machine learning, OS-level agent architecture, mobile development and latency optimization.",
+    contributions: [
+      "Owned a cycling-route extraction pipeline end to end: recovering ordered geographic landmarks from unconstrained screenshots via morphological image processing, then snapping them to real routes through a maps routing service. Cut per-image runtime from roughly 30s to 12–15s.",
+      "Fine-tuned a YOLO26 detector for in-pipeline map icon detection on a self-curated 2,300-image dataset — a class absent from pretraining — reaching 98% mAP@50 with mosaic and flip augmentation.",
+      "Co-proposed and built a Windows desktop agent that learns repeated user workflows from OS-level event capture and replays them through computer-use tool calls, with fuzzy sliding-window matching over a prefix tree of skills in ChromaDB.",
+      "Built the entire frontend for a multi-person voice assistant mode gating replies on voiceprint identity, and cut median response latency from 7–8s to under 3s by running streaming VAD, model inference and TTS concurrently.",
+      "Co-built a multi-device live speech demo on HarmonyOS in ArkTS, running LiveKit's JavaScript API inside an ArkWeb web view because no native HarmonyOS SDK existed.",
+      "Restructured a teammate's ONNX model-export pipeline around pthreads in under 100 lines of C++ and debugged the file-generation path.",
+    ],
+    beyondCode: [
+      "Pitched approaches to my supervisor and to the full twelve-person team in standups, including frontend design proposals and optimizations to existing projects.",
+      "Ran design reviews and helped other team members with their own projects.",
+      "Managed the team's local agent testing setup on a small 7B model and reported findings back to the team.",
+      "Became a main communicator in several headquarters group chats because I speak Mandarin, recorded demo videos and photography for headquarters leadership, and collected voice data on behalf of other teams. My supervisor remained the primary channel.",
+      "Spent roughly a week writing cloud documentation and repository READMEs so my work could be handed off cleanly.",
+    ],
+    metrics: [
+      {
+        value: "5 projects",
+        label: "In one eight-month term",
+        basis: "measured",
+        note: "Five distinct projects across computer vision, ML, agent architecture, mobile development and latency optimization. The breadth is the notable part — most of these are normally separate specialties.",
+      },
+      {
+        value: "7–8s → <3s",
+        label: "Median voice agent response latency",
+        basis: "approximate",
+        note: "From the user finishing speaking to the assistant's first word, at the median. A rough development measurement rather than rigorous benchmarking.",
+      },
+    ],
+    stack: [
+      "Python",
+      "C++",
+      "ArkTS",
+      "AsyncIO",
+      "OpenCV",
+      "YOLO26",
+      "ChromaDB",
+      "ONNX Runtime",
+      "HarmonyOS",
+    ],
+    projects: [
+      "route-extraction",
+      "voice-agent-latency",
+      "workflow-agent",
+      "multi-device-speech",
+      "onnx-export-parallelism",
+    ],
+    scopeNote:
+      "Much of this work touches internal and unreleased systems. Everything here is described at the level of engineering problem and technique; internal service names, model families and version numbers are deliberately omitted.",
+  },
+
+  {
+    slug: "jd",
+    company: "JD.com",
+    title: "Backend Developer",
+    location: "Beijing, China",
+    timeframe: "Jan – Apr 2025",
+    start: "2025-01",
+    end: "2025-04",
+    context:
+      "One of JD.com's largest internal platforms — coupon issuance and promotion eligibility, used by hundreds of marketing employees. Spring Boot, with Redis and Kafka in the stack.",
+    contributions: [
+      "Implemented a new form allowing employees to submit coupons and promotions for supervisor review.",
+      "Debugged an edge case causing that form to fail to submit, and added alert notifications for it by reusing an alert object class already used elsewhere in the system — roughly thirty lines covering that case and other product-manager-reported issues.",
+      "Fixed frontend rendering defects, which accounted for two of the three issues product managers had raised.",
+      "Added database indexes on the paths I was working in.",
+      "Wrote design documents, participated in code review, and worked directly with product managers to drive three platform issues to resolution over four months.",
+    ],
+    metrics: [
+      {
+        value: "500k+ daily",
+        label: "Transactions on the platform",
+        basis: "inherited-scale",
+        note: "A property of the platform as I found it, along with its high availability. Context for the environment I was working in — code review standards and blast radius — and explicitly not a result I produced.",
+      },
+    ],
+    stack: ["Java", "Spring Boot", "SQL"],
+    projects: ["promotions-platform"],
+    scopeNote:
+      "The platform's transaction volume and availability were inherited, not produced by me. I wrote no tests and did no CI/CD work this term, and I have no measured performance delta to report. What I gained was the ability to navigate and safely change a very large codebase somebody else wrote.",
+  },
+
+  {
+    slug: "adaptive-pulse",
+    company: "Adaptive Pulse",
+    title: "Full Stack Developer",
+    location: "Toronto, ON",
+    timeframe: "May – Aug 2024",
+    start: "2024-05",
+    end: "2024-08",
+    context:
+      "A small company selling a B2B SaaS product combining taxation services with AI features to 100+ client companies. Two co-op students, a couple of engineers, a PM, and the CEO and CTO.",
+    contributions: [
+      "Introduced authentication to a product that had none: an OAuth2 single-sign-on flow with connectors to Google Drive, Dropbox and GitHub, so client companies could bulk-import documents instead of uploading one file at a time.",
+      "Built a continuous ETL synchronization from client sources into Supabase using Airbyte, landing over a million rows.",
+      "Built a retrieval-augmented summarization service over client tax filings, office documents and financial reports using LangChain.js, OpenAI embeddings and pgvector on Supabase.",
+    ],
+    metrics: [
+      {
+        value: "~30%",
+        label: "Reduction in document review time",
+        basis: "estimated",
+        note: "My own informal timing comparison of the old process against the new one. Output quality was assessed by eye, with no formal evaluation. Directional, not a benchmark.",
+      },
+      {
+        value: "1M+ rows",
+        label: "Synchronized into Supabase",
+        basis: "measured",
+        note: "Rows landed through the continuous ETL pipeline.",
+      },
+    ],
+    stack: [
+      "TypeScript",
+      "OAuth2",
+      "Supabase",
+      "Airbyte",
+      "LangChain.js",
+      "pgvector",
+    ],
+    projects: ["adaptive-pulse"],
+    scopeNote:
+      "I hit repeated Airbyte transmission errors on the ETL pipeline that I was not able to resolve. Airbyte and the multi-provider requirement were both my supervisor's decisions.",
+  },
+];
+
+export function getRole(slug: string): Role | undefined {
+  return roles.find((r) => r.slug === slug);
+}
