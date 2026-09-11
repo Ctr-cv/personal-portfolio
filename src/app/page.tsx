@@ -11,6 +11,10 @@ const selectedProjects = ["gestalt-engine", "mvm-engine", "route-extraction"]
   .map(getProject)
   .filter((project) => project !== undefined);
 
+const homeRoles = roles.filter((role) =>
+  ["huawei", "jd", "adaptive-pulse"].includes(role.slug),
+);
+
 const specs = [
   { key: "Program", value: "Computer Engineering, Waterloo" },
   { key: "Standing", value: "3rd year · 4.0 / 4.0" },
@@ -118,7 +122,7 @@ export default function HomePage() {
             <SectionHeader index="03" label="Experience" title="Four co-op terms across three companies." intro="Software engineering, backend development, and full-stack product work." />
           </Reveal>
           <ol className="mt-16 border-b border-bone-50">
-            {roles.map((role, i) => (
+            {homeRoles.map((role, i) => (
               <Reveal key={role.slug} as="li" index={i} className="border-t border-bone-50">
                 <Link href={`/experience#${role.slug}`} className="group grid gap-8 py-9 lg:grid-cols-[10rem_minmax(0,0.8fr)_minmax(0,1.2fr)_auto] lg:items-start">
                   <span className="type-meta text-bone-500">{role.timeframe}</span>

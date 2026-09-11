@@ -5,12 +5,12 @@ import { MetricRow } from "@/components/metric";
 import { Reveal } from "@/components/reveal";
 import { TagList } from "@/components/tags";
 import { education } from "@/content/about";
-import { additionalRoles, roles } from "@/content/experience";
+import { roles } from "@/content/experience";
 import { getProject } from "@/content/projects";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Four co-op terms in software engineering, backend development, and full-stack product work at Huawei, JD.com, and Adaptive Pulse.",
+  description: "Five internships spanning software engineering, data analysis, and research across teams in Canada and China.",
   alternates: { canonical: "/experience" },
 };
 
@@ -27,10 +27,10 @@ export default function ExperiencePage() {
             <div>
               <span aria-hidden="true" className="page-index block">03</span>
               <h1 className="anim-rise type-h1 mt-8 max-w-5xl text-balance text-bone-50" style={{ ["--i" as string]: 1 }}>
-                Four work terms across engineering teams in Canada and China.
+                Five experiences across engineering and research teams in Canada and China.
               </h1>
               <p className="anim-rise type-lead mt-8 max-w-2xl text-pretty text-bone-400" style={{ ["--i" as string]: 2 }}>
-                Software engineering, backend development, and full-stack product work alongside my Computer Engineering degree at Waterloo.
+                Software engineering, backend development, full-stack product work, data analysis, and simulation-led research alongside my Computer Engineering degree at Waterloo.
               </p>
             </div>
 
@@ -126,61 +126,6 @@ export default function ExperiencePage() {
             </li>
           ))}
         </ol>
-
-        <section id="additional-experience" className="scroll-mt-24 border-t border-bone-50 py-16 sm:py-24">
-          <Reveal className="grid gap-8 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-16">
-            <div>
-              <span className="type-label text-bone-500">Additional experience</span>
-              <span className="type-meta numeric mt-4 block text-bone-300">2023 — 2025</span>
-            </div>
-            <div>
-              <h2 className="type-h1 max-w-3xl text-balance text-bone-50">Earlier research across data and physical systems.</h2>
-              <p className="type-prose mt-5 max-w-2xl text-pretty text-bone-400">
-                Focused internships in cancer-research data analysis and simulation-led mechanical design.
-              </p>
-            </div>
-          </Reveal>
-
-          <ol className="mt-14 border-b border-carbon-700 lg:ml-[calc(14rem+4rem)]">
-            {additionalRoles.map((role, roleIndex) => (
-              <li key={role.slug} id={role.slug} className="scroll-mt-24 border-t border-carbon-700 py-12 first:border-t-0 first:pt-0">
-                <Reveal>
-                  <div className="grid gap-6 sm:grid-cols-[8rem_minmax(0,1fr)]">
-                    <div>
-                      <span aria-hidden="true" className="type-meta numeric text-bone-500">A{String(roleIndex + 1).padStart(2, "0")}</span>
-                      <span className="type-meta numeric mt-3 block text-bone-300">{role.timeframe}</span>
-                      <span className="type-meta mt-1 block text-bone-500">{role.location}</span>
-                    </div>
-                    <div>
-                      <h3 className="type-h3 text-balance text-bone-50">{role.company}</h3>
-                      <p className="type-meta mt-2 text-bone-300">{role.title}</p>
-                      <p className="mt-5 max-w-2xl text-base leading-relaxed text-bone-400">{role.context}</p>
-                    </div>
-                  </div>
-
-                  {role.metrics.length > 0 && (
-                    <div className="mt-9 sm:ml-[calc(8rem+1.5rem)]">
-                      {role.metrics.map((metric) => <MetricRow key={metric.label} metric={metric} />)}
-                    </div>
-                  )}
-
-                  <div className="mt-9 sm:ml-[calc(8rem+1.5rem)]">
-                    <span className="type-label text-bone-500">Contributions</span>
-                    <ul className="mt-5 flex max-w-3xl flex-col gap-4">
-                      {role.contributions.map((item, index) => (
-                        <li key={item} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-3">
-                          <span aria-hidden="true" className="type-meta numeric text-bone-500">{String(index + 1).padStart(2, "0")}</span>
-                          <p className="text-base leading-relaxed text-bone-300">{item}</p>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-8"><TagList items={role.stack} /></div>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
-        </section>
 
         <section id="education" className="scroll-mt-24 border-t border-bone-50 py-16 sm:py-24">
           <Reveal className="grid gap-8 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-16">
