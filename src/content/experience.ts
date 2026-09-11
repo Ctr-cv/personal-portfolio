@@ -1,6 +1,6 @@
 import type { Role } from "./types";
 
-/** Most recent first, with Lansi placed before the overlapping JD.com term. */
+/** Most recent first. */
 export const roles: Role[] = [
   {
     slug: "huawei",
@@ -57,32 +57,6 @@ export const roles: Role[] = [
   },
 
   {
-    slug: "lansi-ai",
-    company: "Shenzhen Lansi Institute of AI",
-    title: "Data Analyst Intern",
-    location: "Remote",
-    timeframe: "Dec 2024 – Mar 2025",
-    start: "2024-12",
-    end: "2025-03",
-    context:
-      "Supported cancer-research data analysis and literature review using open-source clinical and gene-expression datasets.",
-    contributions: [
-      "Used R and Python to explore clinical and gene-expression data drawn from a global collection of 500,000 open-source cancer-research samples.",
-      "Gathered research inputs through web scraping and Python-assisted literature review, using Zotero to organize recent medical papers.",
-      "Built automated scrapers to aggregate literature and applied neural-network and statistical prediction procedures, including Lasso and Cox regression, in support of research on model predictions.",
-    ],
-    metrics: [
-      {
-        value: "500k",
-        label: "Open-source samples analyzed",
-        basis: "inherited-scale",
-        note: "The size of the source dataset, not samples collected or generated during the internship.",
-      },
-    ],
-    stack: ["R", "Python", "Web scraping", "Lasso regression", "Cox regression", "Zotero"],
-  },
-
-  {
     slug: "jd",
     company: "JD.com",
     title: "Backend Developer",
@@ -111,6 +85,32 @@ export const roles: Role[] = [
     projects: ["promotions-platform"],
     scopeNote:
       "The platform's transaction volume and availability were inherited, not produced by me. I wrote no tests and did no CI/CD work this term, and I have no measured performance delta to report. What I gained was the ability to navigate and safely change a very large codebase somebody else wrote.",
+  },
+
+  {
+    slug: "lansi-ai",
+    company: "Shenzhen Lansi Institute of AI",
+    title: "Data Analyst Intern",
+    location: "Remote",
+    timeframe: "Dec 2024 – Mar 2025",
+    start: "2024-12",
+    end: "2025-03",
+    context:
+      "Supported cancer-research data analysis and literature review using open-source clinical and gene-expression datasets.",
+    contributions: [
+      "Used R and Python to explore clinical and gene-expression data drawn from a global collection of 500,000 open-source cancer-research samples.",
+      "Gathered research inputs through web scraping and Python-assisted literature review, using Zotero to organize recent medical papers.",
+      "Built automated scrapers to aggregate literature and applied neural-network and statistical prediction procedures, including Lasso and Cox regression, in support of research on model predictions.",
+    ],
+    metrics: [
+      {
+        value: "500k",
+        label: "Open-source samples analyzed",
+        basis: "inherited-scale",
+        note: "The size of the source dataset, not samples collected or generated during the internship.",
+      },
+    ],
+    stack: ["R", "Python", "Web scraping", "Lasso regression", "Cox regression", "Zotero"],
   },
 
   {
