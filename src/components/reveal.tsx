@@ -1,14 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 
 /**
- * Scroll-triggered reveal. Deliberately minimal: it toggles one data attribute
- * and lets CSS own the animation, so `prefers-reduced-motion` is handled in one
- * place in globals.css rather than in JS.
+ * Scroll-triggered reveal.
  *
- * Elements start visible and are only hidden once the observer is confirmed to
- * be running, so content is never trapped invisible if JS fails to hydrate.
+ * Two deliberate choices:
+ *
+ * 1. No React state. The effect adds the `reveal` class and toggles a data
+ *    attribute on the node directly, which is exactly the "synchronise an
+ *    external system" job effects are for, and it avoids extra render passes.
+ *    CSS owns the animation, so `prefers-reduced-motion` is handled in one place
+ *    in globals.css.
+ *
+ * 2. Content renders visible and is only hidden if the element is actually below
+ *    the fold at mount. So nothing is ever trapped invisible when JS fails to
+ *    hydrate, and elements already on screen at load don't flash.
  */
 export function Reveal({
   children,
@@ -22,43 +29,40 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
-  const [shown, setShown] = useState(false);
-  const [armed, setArmed] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
+    if (!node || typeof IntersectionObserver === "undefined") return;
 
-    if (typeof IntersectionObserver === "undefined") {
-      setShown(true);
-      return;
-    }
+    // Already in view at load: leave it alone rather than animating it in.
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.92) return;
 
-    setArmed(true);
+    node.classList.add("reveal");
+    node.dataset.shown = "false";
 
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setShown(true);
+            node.dataset.shown = "true";
             observer.disconnect();
           }
         }
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    return () => {
+      observer.disconnect();
+      node.classList.remove("reveal");
+    };
   }, []);
 
   return (
-    <Tag
-      ref={ref}
-      className={`${armed ? "reveal" : ""} ${className}`}
-      data-shown={shown ? "true" : "false"}
-      style={{ ["--i" as string]: index }}
-    >
+    <Tag ref={ref} className={className} style={{ ["--i" as string]: index }}>
       {children}
     </Tag>
   );

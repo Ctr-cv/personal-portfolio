@@ -18,15 +18,17 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [lifted, setLifted] = useState(false);
 
-  // Close the mobile menu on navigation.
-  useEffect(() => setOpen(false), [pathname]);
-
   // Solidify the bar once scrolled, so it never competes with the hero.
   useEffect(() => {
     const onScroll = () => setLifted(window.scrollY > 24);
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    // Deferred rather than called inline: catches a restored scroll position on
+    // load without triggering a cascading render during the effect.
+    const frame = requestAnimationFrame(onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   // Prevent background scroll while the mobile menu is open.
@@ -126,6 +128,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setOpen(false)}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className="flex items-center justify-between border-b border-bone-400/10 py-4"
               >
@@ -139,7 +142,7 @@ export function SiteHeader() {
                 </span>
               </Link>
             ))}
-            <a href={site.resume} className="py-4">
+            <a href={site.resume} onClick={() => setOpen(false)} className="py-4">
               <span className="type-h3 text-bone-100">Résumé</span>
             </a>
           </nav>

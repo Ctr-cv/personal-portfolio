@@ -27,7 +27,9 @@
   --color-bone-200: #ded8cd;
   --color-bone-300: #bdb6aa;
   --color-bone-400: #9a948b;
-  --color-bone-500: #7c766e;
+  /* Lightened from #7c766e so label/meta text clears WCAG AA (4.5:1) on every
+     surface used, including carbon-750. It was 4.07:1 on carbon-800 before. */
+  --color-bone-500: #8e8880;
 
   /* --- Signal: hardware ------------------------------------------------ */
   --color-signal-300: #ffcd82;
