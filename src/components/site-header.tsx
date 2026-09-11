@@ -16,22 +16,7 @@ const nav = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [lifted, setLifted] = useState(false);
 
-  // Solidify the bar once scrolled, so it never competes with the hero.
-  useEffect(() => {
-    const onScroll = () => setLifted(window.scrollY > 24);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    // Deferred rather than called inline: catches a restored scroll position on
-    // load without triggering a cascading render during the effect.
-    const frame = requestAnimationFrame(onScroll);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
-  // Prevent background scroll while the mobile menu is open.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -43,13 +28,7 @@ export function SiteHeader() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-colors duration-500 ${
-        lifted
-          ? "border-b border-bone-400/12 bg-carbon-900/85 backdrop-blur-md"
-          : "border-b border-transparent"
-      }`}
-    >
+    <header className="relative z-50 border-b border-carbon-700 bg-carbon-900">
       <Container wide>
         <div className="flex h-16 items-center justify-between gap-6 sm:h-20">
           <Link
@@ -98,33 +77,24 @@ export function SiteHeader() {
 
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-nav"
             className="type-label flex items-center gap-2.5 border border-bone-400/25 px-3 py-2 text-bone-200 md:hidden"
           >
             {open ? "Close" : "Menu"}
             <span aria-hidden="true" className="flex flex-col gap-1">
-              <span
-                className={`block h-px w-4 bg-current transition-transform duration-300 ${open ? "translate-y-[3px] rotate-45" : ""}`}
-              />
-              <span
-                className={`block h-px w-4 bg-current transition-transform duration-300 ${open ? "-translate-y-[3px] -rotate-45" : ""}`}
-              />
+              <span className={`block h-px w-4 bg-current transition-transform duration-300 ${open ? "translate-y-[3px] rotate-45" : ""}`} />
+              <span className={`block h-px w-4 bg-current transition-transform duration-300 ${open ? "-translate-y-[3px] -rotate-45" : ""}`} />
             </span>
           </button>
         </div>
       </Container>
 
-      {/* Mobile panel */}
-      <div
-        id="mobile-nav"
-        hidden={!open}
-        className="border-t border-bone-400/12 bg-carbon-900/97 backdrop-blur-md md:hidden"
-      >
+      <div id="mobile-nav" hidden={!open} className="border-t border-bone-400/12 bg-carbon-900 md:hidden">
         <Container>
           <nav aria-label="Main" className="flex flex-col py-3">
-            {nav.map((item, i) => (
+            {nav.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -132,13 +102,11 @@ export function SiteHeader() {
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className="flex items-center justify-between border-b border-bone-400/10 py-4"
               >
-                <span
-                  className={`type-h3 ${isActive(item.href) ? "text-signal-400" : "text-bone-100"}`}
-                >
+                <span className={`type-h3 ${isActive(item.href) ? "text-signal-400" : "text-bone-100"}`}>
                   {item.label}
                 </span>
                 <span aria-hidden="true" className="type-label numeric text-bone-500">
-                  {String(i + 1).padStart(2, "0")}
+                  {String(index + 1).padStart(2, "0")}
                 </span>
               </Link>
             ))}

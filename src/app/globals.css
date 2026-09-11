@@ -175,7 +175,7 @@ body {
   mask-image: none;
 }
 
-/* Short, restrained entrance motion. */
+/* Deliberate entrance motion: long enough to register without delaying content. */
 @keyframes rise {
   from {
     opacity: 0;
@@ -199,8 +199,8 @@ body {
 
 .anim-rise,
 .anim-wipe {
-  animation: rise 0.45s var(--ease-out-expo) both;
-  animation-delay: calc(var(--i, 0) * 55ms);
+  animation: rise 0.8s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
 }
 
 .anim-pulse {
@@ -216,9 +216,9 @@ body {
   opacity: 0;
   transform: translate3d(0, 0.75rem, 0);
   transition:
-    opacity 0.4s ease,
-    transform 0.4s var(--ease-out-expo);
-  transition-delay: calc(var(--i, 0) * 40ms);
+    opacity 0.75s ease,
+    transform 0.75s var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 75ms);
 }
 
 .reveal[data-shown="true"] {
