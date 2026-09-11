@@ -291,3 +291,199 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+
+/* Editorial enrichment -----------------------------------------------------
+ * Page identity comes from composition, surfaces, and indexed structure while
+ * the palette and type system remain shared. All decoration is built from
+ * solid fills and rules—no gradients, shadows, or ornamental texture.
+ */
+.type-project-feature {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.2vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.type-project-page {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.type-project-section {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.type-project-card {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.6vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.home-hero {
+  isolation: isolate;
+  border-bottom: 1px solid var(--rule);
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: clamp(1.5rem, 7vw, 7rem);
+  width: min(25vw, 24rem);
+  height: 100%;
+  border-inline: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+.home-monogram {
+  position: absolute;
+  z-index: -1;
+  right: clamp(1rem, 4vw, 4rem);
+  bottom: -0.12em;
+  color: var(--color-carbon-750);
+  font-family: var(--font-display);
+  font-size: clamp(10rem, 28vw, 28rem);
+  font-weight: 500;
+  line-height: 0.72;
+  letter-spacing: -0.1em;
+  user-select: none;
+}
+
+.surface-panel {
+  background: var(--color-carbon-850);
+  border-block: 1px solid var(--rule);
+}
+
+.page-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-cover::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: clamp(1.5rem, 6vw, 6rem);
+  width: clamp(4rem, 13vw, 12rem);
+  height: 100%;
+  border-inline: 1px solid currentColor;
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+.page-cover-about {
+  background: var(--color-carbon-800);
+}
+
+.page-cover-projects {
+  background: var(--color-bone-50);
+  color: var(--color-carbon-900);
+  border-color: #3b3b3b;
+}
+
+.page-cover-experience {
+  background: var(--color-carbon-850);
+}
+
+.page-cover-contact {
+  background: var(--color-carbon-800);
+}
+
+.page-index {
+  color: var(--color-carbon-600);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 12vw, 11rem);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+}
+
+.profile-panel {
+  background: var(--color-carbon-900);
+  border: 1px solid var(--rule);
+}
+
+.catalog-stat {
+  border-top: 1px solid #4d4d4d;
+  padding-block: 1rem;
+}
+
+.timeline-rail {
+  position: relative;
+  border-left: 1px solid var(--rule-strong);
+  padding-left: 1.5rem;
+}
+
+.timeline-rail::before,
+.timeline-rail::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--rule-strong);
+}
+
+.timeline-rail::before { top: 0; }
+.timeline-rail::after { bottom: 0; }
+
+.contact-address-card {
+  background: var(--color-carbon-850);
+  border: 1px solid var(--rule-strong);
+}
+
+.project-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-carbon-800);
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-cover::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 1.5rem clamp(1.5rem, 5vw, 5rem) 1.5rem auto;
+  width: min(28vw, 24rem);
+  border: 1px solid var(--rule);
+  pointer-events: none;
+}
+
+.project-glyph-frame {
+  display: flex;
+  min-height: 11rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule-strong);
+  background: var(--color-carbon-900);
+  padding: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .home-hero::before,
+  .page-cover::after,
+  .project-cover::after {
+    display: none;
+  }
+
+  .home-monogram {
+    opacity: 0.55;
+  }
+}

@@ -21,8 +21,9 @@ const specs = [
 export default function HomePage() {
   return (
     <>
-      <section className="relative min-h-[calc(100vh-5rem)] py-20 sm:py-28">
-        <Container wide className="flex min-h-[70vh] flex-col justify-between">
+      <section className="home-hero relative min-h-[calc(100vh-5rem)] overflow-hidden py-20 sm:py-28">
+        <div aria-hidden="true" className="home-monogram">VH</div>
+        <Container wide className="relative flex min-h-[70vh] flex-col justify-between">
           <div className="grid gap-16 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
             <div>
               <p className="anim-rise type-label text-bone-400" style={{ ["--i" as string]: 0 }}>
@@ -44,7 +45,13 @@ export default function HomePage() {
               </div>
             </div>
 
-            <aside className="anim-rise self-end border-t border-bone-50" style={{ ["--i" as string]: 4 }} aria-label="At a glance">
+            <aside className="anim-rise self-end bg-carbon-900/90" style={{ ["--i" as string]: 4 }} aria-label="At a glance">
+              <div aria-hidden="true" className="grid h-16 grid-cols-4 border border-bone-50">
+                <span className="bg-bone-50" />
+                <span className="border-l border-carbon-700" />
+                <span className="border-l border-carbon-700 bg-carbon-800" />
+                <span className="border-l border-carbon-700" />
+              </div>
               {specs.map((spec) => (
                 <div key={spec.key} className="border-b border-carbon-700 py-4">
                   <span className="type-meta block text-bone-500">{spec.key}</span>
@@ -53,11 +60,16 @@ export default function HomePage() {
               ))}
             </aside>
           </div>
-          <p className="type-meta mt-16 text-bone-500">Scroll to explore ↓</p>
+
+          <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-carbon-700 pt-4">
+            <p className="type-meta text-bone-500">Portfolio / 2026</p>
+            <p className="type-meta text-bone-500">Waterloo · Toronto · Beijing</p>
+            <p className="type-meta text-bone-500">Scroll to explore ↓</p>
+          </div>
         </Container>
       </section>
 
-      <TimingDivider />
+      <TimingDivider className="mt-8" />
 
       <section className="py-24 sm:py-36">
         <Container wide>
@@ -77,7 +89,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-24 sm:py-36">
+      <section className="surface-panel py-24 sm:py-36">
         <Container wide>
           <Reveal>
             <SectionHeader index="02" label="Selected projects" title="Three representative projects." intro="Machine learning, FPGA design, and computer vision work from personal and professional settings." />
