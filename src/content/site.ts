@@ -5,7 +5,7 @@ export const site = {
   role: "Computer Engineering @ University of Waterloo",
   /** The hero's differentiating line. */
   positioning:
-    "I build in both directions of the stack — pipelined RTL that closes timing on real silicon, and AI systems that ship to real users.",
+    "Computer Engineering student working across software, machine learning, and digital hardware.",
   /** One-sentence answer to "what do you do". */
   summary:
     "Third-year Computer Engineering student at the University of Waterloo. Four completed co-op terms across AI systems, full-stack product work, and digital hardware design.",
@@ -33,17 +33,17 @@ export const site = {
 export const disciplines = [
   {
     id: "hardware" as const,
-    label: "Digital Hardware",
-    heading: "RTL that meets timing",
-    body: "A parameterizable matrix-vector multiplication engine in SystemVerilog, scaled to 128 compute lanes against a real device's DSP and BRAM budget. A binarized neural network submitted for fabrication through TinyTapeout. Verification with cocotb, unit testbenches ahead of integration, and post-implementation netlist simulation — not just RTL that simulates.",
-    keywords: ["SystemVerilog", "Vivado", "Timing closure", "cocotb", "FPGA / ASIC"],
+    label: "Digital hardware",
+    heading: "RTL and embedded systems",
+    body: "Coursework and project experience in SystemVerilog, FPGA implementation, timing closure, cocotb verification, and embedded C on STM32.",
+    keywords: ["SystemVerilog", "Vivado", "cocotb", "FPGA / ASIC", "Embedded C"],
   },
   {
     id: "software" as const,
-    label: "AI Systems",
-    heading: "Latency that users feel",
-    body: "Voice agent response latency cut from 7–8 seconds to under 3 by restructuring sequential stages to run concurrently. An LSTM gesture recognizer implemented twice — once from scratch in NumPy with hand-written backpropagation, once in PyTorch — to actually understand it. Object detection fine-tuned for a class that did not exist in pretraining.",
-    keywords: ["Python", "PyTorch", "Concurrency", "Computer vision", "FastAPI / React"],
+    label: "Software and ML",
+    heading: "Machine learning and product engineering",
+    body: "Co-op and personal work spanning computer vision, real-time inference, concurrent pipelines, backend services, and React applications.",
+    keywords: ["Python", "PyTorch", "Computer vision", "FastAPI", "React"],
   },
 ];
 
