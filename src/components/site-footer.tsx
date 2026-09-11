@@ -6,9 +6,9 @@ const columns = [
   {
     label: "Site",
     links: [
+      { label: "About", href: "/about" },
       { label: "Projects", href: "/work" },
       { label: "Experience", href: "/experience" },
-      { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -24,22 +24,23 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 border-t border-bone-50">
-      <Container wide className="py-16 sm:py-20">
-        <div className="flex flex-col gap-8 border-b border-carbon-700 pb-14 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl">
-            <span className="type-label text-bone-500">{site.availability.label}</span>
-            <p className="type-h2 mt-5 text-balance text-bone-50">
-              Interested in digital hardware, verification, and AI systems roles.
-            </p>
-            <p className="type-meta mt-5 text-bone-500">{site.availability.detail}</p>
-          </div>
-          <a href={`mailto:${site.email}`} className="type-label shrink-0 bg-bone-100 px-6 py-4 text-carbon-850">
-            {site.email} →
+    <footer className="mt-24 border-t border-bone-50">
+      <Container wide>
+        <aside
+          aria-label="Availability"
+          className="grid gap-3 border-b border-carbon-700 py-5 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-8"
+        >
+          <span className="type-meta flex items-center gap-2 text-bone-300">
+            <span aria-hidden="true" className="size-1.5 bg-bone-50" />
+            {site.availability.label}
+          </span>
+          <p className="text-sm leading-relaxed text-bone-500">{site.availability.detail}</p>
+          <a href={`mailto:${site.email}`} className="type-meta link-underline w-fit text-bone-100">
+            Email →
           </a>
-        </div>
+        </aside>
 
-        <div className="grid gap-10 pt-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <span className="font-display text-lg text-bone-100">{site.name}</span>
             <p className="type-meta mt-3 text-bone-500">{site.role}</p>
@@ -53,12 +54,7 @@ export function SiteFooter() {
                 {column.links.map((link) => (
                   <li key={link.href}>
                     {"external" in link && link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="link-underline type-meta text-bone-300"
-                      >
+                      <a href={link.href} target="_blank" rel="noreferrer noopener" className="link-underline type-meta text-bone-300">
                         {link.label}
                       </a>
                     ) : (
@@ -73,7 +69,7 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-carbon-700 pt-6 sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-3 border-t border-carbon-700 py-6 sm:flex-row sm:justify-between">
           <p className="type-meta text-bone-500">© {new Date().getFullYear()} {site.name}</p>
           <p className="type-meta text-bone-500">Built with Next.js · Deployed on Vercel</p>
         </div>

@@ -7,9 +7,9 @@ import { Container } from "@/components/layout-primitives";
 import { site } from "@/content/site";
 
 const nav = [
+  { href: "/about", label: "About" },
   { href: "/work", label: "Projects" },
   { href: "/experience", label: "Experience" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 

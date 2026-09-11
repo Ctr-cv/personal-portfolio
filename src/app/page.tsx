@@ -86,6 +86,11 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+          <Reveal className="mt-10">
+            <Link href="/about" className="type-label link-underline text-bone-100">
+              View More About Me →
+            </Link>
+          </Reveal>
         </Container>
       </section>
 

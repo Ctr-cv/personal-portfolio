@@ -7,7 +7,6 @@ import { TagList } from "@/components/tags";
 import { education } from "@/content/about";
 import { roles } from "@/content/experience";
 import { getProject } from "@/content/projects";
-import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -112,7 +111,7 @@ export default function ExperiencePage() {
                         return (
                           <li key={slug}>
                             <Link href={`/work/${slug}`} className="group block h-full border-t border-bone-50 py-5">
-                              <span className="type-h3 text-bone-100 transition-opacity group-hover:opacity-60">{project.title}</span>
+                              <span className="type-project-card text-bone-100 transition-opacity group-hover:opacity-60">{project.title}</span>
                               <span className="type-meta mt-2 block text-bone-500">{project.kind}</span>
                             </Link>
                           </li>
@@ -158,15 +157,6 @@ export default function ExperiencePage() {
             </div>
           </Reveal>
         </section>
-
-        <Reveal className="flex flex-col items-start gap-6 border-t border-bone-50 py-16">
-          <p className="type-h2 max-w-3xl text-balance text-bone-100">Seeking a fifth co-op term.</p>
-          <p className="type-prose max-w-2xl text-bone-400">{site.availability.detail}</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="type-label bg-bone-100 px-6 py-4 text-carbon-850">Contact →</Link>
-            <a href={site.resume} className="type-label border border-bone-100 px-6 py-4 text-bone-100">Résumé (PDF)</a>
-          </div>
-        </Reveal>
       </Container>
     </>
   );
