@@ -30,7 +30,7 @@ function CaseHeading({ index, children }: { index: string; children: React.React
   return (
     <div className="grid gap-4 border-t-2 border-bone-50 pt-5 lg:grid-cols-[12rem_minmax(0,1fr)]">
       <span aria-hidden="true" className="type-meta numeric text-bone-500">{index}</span>
-      <h2 className="type-h2 max-w-4xl text-balance text-bone-50">{children}</h2>
+      <h2 className="type-project-section max-w-4xl text-balance text-bone-50">{children}</h2>
     </div>
   );
 }
@@ -71,10 +71,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <DisciplineMark discipline={project.discipline} />
                 {project.status && <StatusPill status={project.status} />}
               </div>
-              <h1 className="anim-rise type-h1 mt-7 max-w-5xl text-balance text-bone-50" style={{ ["--i" as string]: 2 }}>
+              <h1 className="anim-rise type-project-page mt-7 max-w-5xl text-balance text-bone-50" style={{ ["--i" as string]: 2 }}>
                 {project.title}
               </h1>
-              <p className="anim-rise type-lead mt-8 max-w-3xl text-pretty text-bone-400" style={{ ["--i" as string]: 3 }}>
+              <p className="anim-rise mt-7 max-w-3xl text-pretty text-base leading-relaxed text-bone-400 sm:text-lg" style={{ ["--i" as string]: 3 }}>
                 {project.tagline}
               </p>
             </div>
@@ -123,7 +123,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <ol className="mt-10 border-b border-carbon-700 lg:ml-[calc(12rem+1rem)]">
               {copy.choices.map((choice, index) => (
                 <Reveal as="li" key={choice.title} index={index} className="grid gap-4 border-t border-carbon-700 py-7 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-10">
-                  <h3 className="type-h3 text-bone-50">{choice.title}</h3>
+                  <h3 className="type-project-card text-bone-50">{choice.title}</h3>
                   <p className="text-base leading-relaxed text-bone-400">{choice.body}</p>
                 </Reveal>
               ))}
@@ -147,8 +147,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
         <Rule />
         <nav aria-label="More projects" className="grid gap-8 py-10 sm:grid-cols-2">
-          {prev ? <Link href={`/work/${prev.slug}`} className="group border-t border-carbon-700 py-5"><span className="type-label text-bone-500">← Previous</span><span className="type-h3 mt-3 block text-bone-100 transition-opacity group-hover:opacity-60">{prev.title}</span></Link> : <span />}
-          {next && <Link href={`/work/${next.slug}`} className="group border-t border-carbon-700 py-5 sm:text-right"><span className="type-label text-bone-500">Next →</span><span className="type-h3 mt-3 block text-bone-100 transition-opacity group-hover:opacity-60">{next.title}</span></Link>}
+          {prev ? <Link href={`/work/${prev.slug}`} className="group border-t border-carbon-700 py-5"><span className="type-label text-bone-500">← Previous</span><span className="type-project-card mt-3 block text-bone-100 transition-opacity group-hover:opacity-60">{prev.title}</span></Link> : <span />}
+          {next && <Link href={`/work/${next.slug}`} className="group border-t border-carbon-700 py-5 sm:text-right"><span className="type-label text-bone-500">Next →</span><span className="type-project-card mt-3 block text-bone-100 transition-opacity group-hover:opacity-60">{next.title}</span></Link>}
         </nav>
       </Container>
     </article>

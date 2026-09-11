@@ -3,7 +3,6 @@ import { MetricChip } from "@/components/metric";
 import { DisciplineMark, StatusPill, TagList } from "@/components/tags";
 import type { Project } from "@/content/types";
 
-/** Large, editorial row used for the three selected home-page projects. */
 export function FeaturedProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article className="group border-t border-bone-50">
@@ -18,18 +17,18 @@ export function FeaturedProjectCard({ project, index }: { project: Project; inde
               <DisciplineMark discipline={project.discipline} />
               {project.status && <StatusPill status={project.status} />}
             </div>
-            <h3 className="type-h2 mt-5 max-w-3xl text-bone-50 transition-opacity duration-200 group-hover:opacity-65">
+            <h3 className="type-project-feature mt-5 max-w-3xl text-bone-50 transition-opacity duration-200 group-hover:opacity-65">
               {project.title}
             </h3>
-            <p className="type-lead mt-5 max-w-2xl text-bone-400">{project.tagline}</p>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-bone-400 sm:text-lg">
+              {project.tagline}
+            </p>
           </div>
 
           <div className="flex flex-col justify-between gap-8 lg:border-l lg:border-carbon-700 lg:pl-8">
             {project.metrics[0] && <MetricChip metric={project.metrics[0]} />}
             <div>
-              <p className="type-meta mb-4 text-bone-500">
-                {project.kind} · {project.timeframe}
-              </p>
+              <p className="type-meta mb-4 text-bone-500">{project.kind} · {project.timeframe}</p>
               <TagList items={project.stack} max={4} />
             </div>
           </div>
@@ -38,9 +37,7 @@ export function FeaturedProjectCard({ project, index }: { project: Project; inde
         <div className="mt-8 flex justify-end">
           <span className="type-label inline-flex items-center gap-2 text-bone-100">
             View project
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
-              →
-            </span>
+            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
           </span>
         </div>
       </Link>
@@ -48,7 +45,6 @@ export function FeaturedProjectCard({ project, index }: { project: Project; inde
   );
 }
 
-/** Compact project index card; typography carries the visual hierarchy. */
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group h-full border-t border-bone-50">
@@ -58,10 +54,10 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.status && <StatusPill status={project.status} />}
         </div>
 
-        <h3 className="type-h3 mt-8 text-bone-50 transition-opacity duration-200 group-hover:opacity-60">
+        <h3 className="type-project-card mt-8 text-bone-50 transition-opacity duration-200 group-hover:opacity-60">
           {project.title}
         </h3>
-        <p className="mt-4 line-clamp-3 text-base leading-relaxed text-bone-400">
+        <p className="mt-4 line-clamp-3 text-[0.9375rem] leading-relaxed text-bone-400">
           {project.tagline}
         </p>
 
