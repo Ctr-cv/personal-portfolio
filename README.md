@@ -1,6 +1,6 @@
 # Vivi Huang — Portfolio
 
-The personal portfolio of Vivi Huang, a third-year Computer Engineering student at
+This is the repository for my personal portfolio. I'm a third-year Computer Engineering student at
 the University of Waterloo, working across software, machine learning, and digital
 hardware.
 
