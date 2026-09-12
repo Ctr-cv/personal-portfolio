@@ -4,7 +4,7 @@ This is the repository for my personal portfolio. I'm a third-year Computer Engi
 the University of Waterloo, working across software, machine learning, and digital
 hardware.
 
-**Live site:** [vivihuang.vercel.app](https://vivihuang.vercel.app)
+**Live site:** [vivi-huang.vercel.app](https://vivi-huang.vercel.app)
 
 ## What's inside
 
